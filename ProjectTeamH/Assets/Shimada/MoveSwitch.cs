@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class MoveSwitch : MonoBehaviour
 {
+    [SerializeField]
+    private int FlagNo;
     void Start()
     {
 
@@ -16,13 +18,13 @@ public class MoveSwitch : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (FlagManager.Instance.flags[0] == false)
+            if (FlagManager.Instance.flags[FlagNo] == false)
             {
-                FlagManager.Instance.flags[0] = true;
+                FlagManager.Instance.flags[FlagNo] = true;
             }
-            else if (FlagManager.Instance.flags[0] == true)
+            else if (FlagManager.Instance.flags[FlagNo] == true)
             {
-                FlagManager.Instance.flags[0] = false;
+                FlagManager.Instance.flags[FlagNo] = false;
             }
         }
     }

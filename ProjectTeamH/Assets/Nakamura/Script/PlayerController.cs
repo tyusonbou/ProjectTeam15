@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour {
     bool isUmbrella;
     [SerializeField]
     bool isCoolTime;
+    [SerializeField]
+    bool isRain;
 
     public bool isKnockBack;
 
@@ -75,6 +77,11 @@ public class PlayerController : MonoBehaviour {
         }
         
         KnockBack();
+
+        if(isRain==true && !isUmbrella)
+        {
+            //Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -194,7 +201,9 @@ public class PlayerController : MonoBehaviour {
         }
         if (isFall && isUmbrella)
         {
-            rb2d.velocity = Vector2.zero;
+            if (time <= 3) { rb2d.velocity = Vector2.zero; }
+            if (time > 3 && time <= 7) { rb2d.velocity = new Vector2(0, -0.5f); }
+            if (time > 7) { rb2d.velocity = new Vector2(0, -1); }
         }
         
         //float speedX = Mathf.Abs(rb2d.velocity.x);
@@ -267,6 +276,10 @@ public class PlayerController : MonoBehaviour {
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
         }
+        if (col.gameObject.tag == "SafeZone")
+        {
+            isRain = false;
+        }
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
         {
@@ -298,6 +311,21 @@ public class PlayerController : MonoBehaviour {
             if (!isGround) { isGround = true; }
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
+        }
+        if (col.gameObject.tag == "SafeZone")
+        {
+            isRain = false;
+        }
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "SafeZone")
+        {
+            
+            isRain = true;
         }
     }
 

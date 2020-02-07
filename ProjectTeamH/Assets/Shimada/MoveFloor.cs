@@ -10,7 +10,11 @@ public class MoveFloor : MonoBehaviour
     //変数定義
     private Rigidbody2D rb;
     private Vector2 defaultpass;
-
+    private float moveTime;//時間
+    [SerializeField]
+    private float speed;//動く速さ
+    [SerializeField]
+    private float length;//動く範囲
     void Start()
     {
         FlagManager.Instance.ResetFlags();
@@ -21,12 +25,14 @@ public class MoveFloor : MonoBehaviour
 
     void Update()
     {
-        Time.timeScale = 0.0f;
+        
         if (FlagManager.Instance.flags[0] == true)
         {
-            Time.timeScale = 1.0f;
+            moveTime += Time.deltaTime;
             //X座標のみ横移動
-            rb.transform.position =new Vector2(defaultpass.x + Mathf.PingPong(Time.time, 3), defaultpass.y);
+            rb.transform.position =new Vector2(defaultpass.x + Mathf.PingPong(moveTime*speed, length), defaultpass.y);
+            
         }
+        
     }
 }

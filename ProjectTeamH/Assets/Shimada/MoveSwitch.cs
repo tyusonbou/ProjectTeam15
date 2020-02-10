@@ -13,8 +13,7 @@ public class MoveSwitch : MonoBehaviour
 
     void Start()
     {
-        Swich = false;//最初はオフ
-        
+        Swich = false;//最初はオフ 
     }
 
     void Update()
@@ -23,19 +22,19 @@ public class MoveSwitch : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
+        //プレイヤーが触れたら
         if (col.gameObject.tag=="Player")
         {
             if (Swich == false)
             {
-                Swich = true;
+                Swich = true;//スイッチオン
                 FlagManager.Instance.flags[FlagNo] = true;
             }
             else if (Swich == true)
             {
-                Swich = false;
+                Swich = false;//スイッチオフ
                 FlagManager.Instance.flags[FlagNo] = false;
             }
         }
-        
     }
 }

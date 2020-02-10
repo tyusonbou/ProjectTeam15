@@ -19,10 +19,11 @@ public class MoveFloor : MonoBehaviour
     private int FlagNo;//床とスイッチの紐づけ
     [SerializeField]
     private bool MoveDirectionFlag;//動く方向
+
     
     void Start()
     {
-        FlagManager.Instance.ResetFlags();
+        FlagManager.Instance.ResetFlags();//フラグ全消し
         rb = this.GetComponent<Rigidbody2D>();
         defaultpass = this.transform.position;
     }

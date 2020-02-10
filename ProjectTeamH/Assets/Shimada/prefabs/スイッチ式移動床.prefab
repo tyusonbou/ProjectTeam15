@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4875072165342429333}
   - component: {fileID: 4875072165342429338}
   - component: {fileID: 4875072165342429339}
+  - component: {fileID: 94092235}
   m_Layer: 0
   m_Name: "\u30B9\u30A4\u30C3\u30C1\u5F0F\u79FB\u52D5\u5E8A"
-  m_TagString: Untagged
+  m_TagString: MoveFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875072165342429336}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.030001, y: -2.87, z: 0.09750321}
   m_LocalScale: {x: 0.391, y: 0.514, z: 1}
   m_Children: []
@@ -145,3 +146,21 @@ MonoBehaviour:
   length: 3
   FlagNo: 0
   MoveDirectionFlag: 0
+--- !u!252 &94092235
+SurfaceEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875072165342429336}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Speed: 1
+  m_SpeedVariation: 0
+  m_ForceScale: 0.1
+  m_UseContactForce: 0
+  m_UseFriction: 1
+  m_UseBounce: 1

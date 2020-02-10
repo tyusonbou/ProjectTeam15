@@ -8,24 +8,34 @@ using UnityEngine;
 public class MoveSwitch : MonoBehaviour
 {
     [SerializeField]
-    private int FlagNo;
+    private int FlagNo;//床とスイッチの紐づけ
+    private bool Swich;//オンかオフか
+
     void Start()
     {
-
+        Swich = false;//最初はオフ
+        
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag=="Player")
         {
-            if (FlagManager.Instance.flags[FlagNo] == false)
+            if (Swich == false)
             {
+                Swich = true;
                 FlagManager.Instance.flags[FlagNo] = true;
             }
-            else if (FlagManager.Instance.flags[FlagNo] == true)
+            else if (Swich == true)
             {
+                Swich = false;
                 FlagManager.Instance.flags[FlagNo] = false;
             }
         }
+        
     }
 }

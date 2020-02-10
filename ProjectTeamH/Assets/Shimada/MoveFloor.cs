@@ -17,24 +17,37 @@ public class MoveFloor : MonoBehaviour
     private float length;//動く範囲
     [SerializeField]
     private int FlagNo;//床とスイッチの紐づけ
+    [SerializeField]
+    private bool MoveDirectionFlag;//動く方向
+    
     void Start()
     {
         FlagManager.Instance.ResetFlags();
         rb = this.GetComponent<Rigidbody2D>();
         defaultpass = this.transform.position;
-        
     }
 
     void Update()
     {
-        
-        if (FlagManager.Instance.flags[FlagNo] == true)
+        //MoveDirectionFlagがfalseなら横方向
+        if (MoveDirectionFlag == false)
         {
-            this.moveTime += Time.deltaTime;
-            //X座標のみ横移動
-            this.rb.transform.position =new Vector2(defaultpass.x + Mathf.PingPong(moveTime*speed, length), defaultpass.y);
-            
+            if (FlagManager.Instance.flags[FlagNo] == true)
+            {
+                this.moveTime += Time.deltaTime;
+                //X座標のみ横移動
+                this.rb.transform.position = new Vector2(defaultpass.x + Mathf.PingPong(moveTime * speed, length), defaultpass.y);
+            }
         }
-        
+        //MoveDirectionFlagがtrueなら縦方向
+        else if (MoveDirectionFlag == true)
+        {
+            if (FlagManager.Instance.flags[FlagNo] == true)
+            {
+                this.moveTime += Time.deltaTime;
+                //Y座標のみ横移動
+                this.rb.transform.position = new Vector2(defaultpass.x, defaultpass.y + Mathf.PingPong(moveTime * speed, length));
+            }
+        }
     }
 }

@@ -5,6 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class MoveSwitch : MonoBehaviour
 {
     [SerializeField]
@@ -37,4 +41,27 @@ public class MoveSwitch : MonoBehaviour
             }
         }
     }
+
+#if UNITY_EDITOR
+    /**
+     * Inspector拡張クラス
+     */
+    [CustomEditor(typeof(MoveSwitch))]               // 拡張するときのお決まり
+    public class MoveSwitchEditor : Editor           // Editorを継承
+    {
+        bool folding = false;
+
+        public override void OnInspectorGUI()
+        {
+            // target は処理コードのインスタンスだよ！ 処理コードの型でキャストして使ってね！
+            MoveSwitch moveswich = target as MoveSwitch;
+
+            // -- カスタム表示
+
+            // -- 床とスイッチの紐づけ --
+            moveswich.FlagNo = EditorGUILayout.IntField("移動床との紐づけ", moveswich.FlagNo);
+
+            }
+    }
+#endif
 }

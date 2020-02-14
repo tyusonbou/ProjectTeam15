@@ -5,6 +5,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;      
+#endif
+
 public class MoveFloor : MonoBehaviour
 {
     //変数定義
@@ -60,4 +64,35 @@ public class MoveFloor : MonoBehaviour
     {
         collision.gameObject.transform.SetParent(null);
     }
+
+#if UNITY_EDITOR
+    /**
+     * Inspector拡張クラス
+     */
+    [CustomEditor(typeof(MoveFloor))]               // 拡張するときのお決まり
+    public class MoveFloorEditor : Editor           // Editorを継承
+    {
+        bool folding = false;
+
+        public override void OnInspectorGUI()
+        {
+            // target は処理コードのインスタンスだよ！ 処理コードの型でキャストして使ってね！
+            MoveFloor move = target as MoveFloor;
+
+            // -- カスタム表示
+
+            // -- 速度 --
+            move.speed = EditorGUILayout.FloatField("速度", move.speed);
+
+            // -- 動く範囲 --
+            move.length = EditorGUILayout.FloatField("動く範囲", move.length);
+
+            // -- 床とスイッチの紐づけ --
+            move.FlagNo = EditorGUILayout.IntField("スイッチとの紐づけ", move.FlagNo);
+
+            // -- 移動方向 --
+            move.MoveDirectionFlag = EditorGUILayout.Toggle("チェックなら縦移動", move.MoveDirectionFlag);
+        }
+    }
+#endif
 }

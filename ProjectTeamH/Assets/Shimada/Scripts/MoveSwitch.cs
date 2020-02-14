@@ -53,6 +53,8 @@ public class MoveSwitch : MonoBehaviour
 
         public override void OnInspectorGUI()
         {
+            //値の変更をする
+            Undo.RecordObject(target, "moveswich");
             // target は処理コードのインスタンスだよ！ 処理コードの型でキャストして使ってね！
             MoveSwitch moveswich = target as MoveSwitch;
 
@@ -61,7 +63,9 @@ public class MoveSwitch : MonoBehaviour
             // -- 床とスイッチの紐づけ --
             moveswich.FlagNo = EditorGUILayout.IntField("移動床との紐づけ", moveswich.FlagNo);
 
-            }
+            //値の変更を保存
+            EditorUtility.SetDirty(moveswich);
+        }
     }
 #endif
 }

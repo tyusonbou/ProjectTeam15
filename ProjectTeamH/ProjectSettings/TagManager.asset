@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-
   - SafeZone
-
+  - MoveFloor
+  - acid
   layers:
   - Default
   - TransparentFX

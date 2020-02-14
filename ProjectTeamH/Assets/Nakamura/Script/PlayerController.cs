@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour {
     public float runThereshold;
     public float AttackSpeed;
     public float EnemyAttack;
-   
-    public float timelimit;
-    public float timeLowerLimit;
+
+    public float umbrellaHP = 10;
+    public float UmHpLimit;
+    public float UmHpMaxLimit;
     public float invisibleInterval;
 
     public int Hp;
@@ -31,13 +32,14 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     bool isUmbrella;
     [SerializeField]
-    bool isCoolTime;
+    public bool isCoolTime;
+    [SerializeField]
+    bool isRain;
 
     public bool isKnockBack;
 
     int key = 0;
-    [SerializeField]
-    float time = 0;
+    
     float invisibleTimer = 0;
 
     string state;
@@ -75,6 +77,11 @@ public class PlayerController : MonoBehaviour {
         }
         
         KnockBack();
+
+        if(isRain==true && !isUmbrella)
+        {
+            //Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -194,7 +201,9 @@ public class PlayerController : MonoBehaviour {
         }
         if (isFall && isUmbrella)
         {
-            rb2d.velocity = Vector2.zero;
+            if (umbrellaHP >= 7) { rb2d.velocity = Vector2.zero; }
+            if (umbrellaHP >= 3 && umbrellaHP < 7) { rb2d.velocity = new Vector2(0, -0.5f); }
+            if (umbrellaHP < 3) { rb2d.velocity = new Vector2(0, -1); }
         }
         
         //float speedX = Mathf.Abs(rb2d.velocity.x);
@@ -204,29 +213,26 @@ public class PlayerController : MonoBehaviour {
     void Attack()
     {
         //傘をさす
-        if (Input.GetKey(KeyCode.Q) && !isUmbrella && !isCoolTime) 
+        if (Input.GetKey(KeyCode.Q)  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
             isUmbrella = true;
         }
-        
-
-        //
-        if (Input.GetKeyUp(KeyCode.Q) && isUmbrella)
+        else if (!Input.GetKey(KeyCode.Q))
         {
-            //Umbrella.SetActive(false);
+            Umbrella.SetActive(false);
             isUmbrella = false;
            
         }
 
-        if (isUmbrella)
+        if ((isUmbrella) && (isRain == true))
         {
-            time += Time.deltaTime;
+            umbrellaHP -= Time.deltaTime;
 
             
 
             //後隙
-            if (time >= timelimit)
+            if (umbrellaHP <= UmHpLimit)
             {
                 isUmbrella = false;
                 isCoolTime = true;
@@ -236,10 +242,10 @@ public class PlayerController : MonoBehaviour {
         if (!isUmbrella)
         {
             Umbrella.SetActive(false);
-            time -= Time.deltaTime;
-            if (time < timeLowerLimit)
+            umbrellaHP += Time.deltaTime;
+            if (umbrellaHP > UmHpMaxLimit)
             {
-                time = timeLowerLimit;
+                umbrellaHP = UmHpMaxLimit;
                 isCoolTime = false;
             }
         }
@@ -266,6 +272,10 @@ public class PlayerController : MonoBehaviour {
             if (!isGround) { isGround = true; }
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
+        }
+        if (col.gameObject.tag == "SafeZone")
+        {
+            isRain = false;
         }
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
@@ -298,6 +308,21 @@ public class PlayerController : MonoBehaviour {
             if (!isGround) { isGround = true; }
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
+        }
+        if (col.gameObject.tag == "SafeZone")
+        {
+            isRain = false;
+        }
+
+
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "SafeZone")
+        {
+            
+            isRain = true;
         }
     }
 

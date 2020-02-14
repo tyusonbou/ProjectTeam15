@@ -24,7 +24,6 @@ public class MoveFloor : MonoBehaviour
     [SerializeField]
     private bool MoveDirectionFlag;//動く方向
 
-    
     void Start()
     {
         FlagManager.Instance.ResetFlags();//フラグ全消し
@@ -57,11 +56,13 @@ public class MoveFloor : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //上に乗っているオブジェクトを子要素に
         collision.gameObject.transform.SetParent(this.transform);
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
+        //子要素から外す
         collision.gameObject.transform.SetParent(null);
     }
 
@@ -76,13 +77,14 @@ public class MoveFloor : MonoBehaviour
 
         public override void OnInspectorGUI()
         {
+            //値の変更をする
+            Undo.RecordObject(target, "move");
             // target は処理コードのインスタンスだよ！ 処理コードの型でキャストして使ってね！
             MoveFloor move = target as MoveFloor;
-
             // -- カスタム表示
 
             // -- 速度 --
-            move.speed = EditorGUILayout.FloatField("速度", move.speed);
+            move.speed = EditorGUILayout.FloatField("速度",move.speed);
 
             // -- 動く範囲 --
             move.length = EditorGUILayout.FloatField("動く範囲", move.length);
@@ -92,7 +94,11 @@ public class MoveFloor : MonoBehaviour
 
             // -- 移動方向 --
             move.MoveDirectionFlag = EditorGUILayout.Toggle("チェックなら縦移動", move.MoveDirectionFlag);
+
+            //値の変更を保存
+            EditorUtility.SetDirty(move);
         }
+
     }
 #endif
 }

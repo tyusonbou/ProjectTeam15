@@ -179,6 +179,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u30B9\u30A4\u30C3\u30C1\u5F0F\u79FB\u52D5\u5E8A"
       objectReference: {fileID: 0}
+    - target: {fileID: 4875072165342429339, guid: 24ebefecb3a363b47b2eb915a29331b4,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 94092235, guid: 24ebefecb3a363b47b2eb915a29331b4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 24ebefecb3a363b47b2eb915a29331b4, type: 3}

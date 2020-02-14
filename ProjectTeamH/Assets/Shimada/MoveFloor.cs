@@ -51,4 +51,13 @@ public class MoveFloor : MonoBehaviour
             }
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.transform.SetParent(this.transform);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.gameObject.transform.SetParent(null);
+    }
 }

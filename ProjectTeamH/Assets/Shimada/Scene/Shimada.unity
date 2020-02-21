@@ -242,6 +242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u30B9\u30A4\u30C3\u30C1"
       objectReference: {fileID: 0}
+    - target: {fileID: 8526501216455127655, guid: e7bd0076e5269784190d981055e5c67b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8526501216455127659, guid: e7bd0076e5269784190d981055e5c67b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -415,7 +420,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471659775
 GameObject:
@@ -988,7 +993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375634757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.19, y: -3.61, z: 0}
+  m_LocalPosition: {x: -1.78, y: -3.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1170,7 +1175,7 @@ PrefabInstance:
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
@@ -1191,6 +1196,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\u30B9\u30A4\u30C3\u30C1\u5F0F\u79FB\u52D5\u5E8A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875072165342429336, guid: 24ebefecb3a363b47b2eb915a29331b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875072165342429339, guid: 24ebefecb3a363b47b2eb915a29331b4,
+        type: 3}
+      propertyPath: SwichType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875072165342429339, guid: 24ebefecb3a363b47b2eb915a29331b4,
+        type: 3}
+      propertyPath: MoveDirectionFlag
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ebefecb3a363b47b2eb915a29331b4, type: 3}

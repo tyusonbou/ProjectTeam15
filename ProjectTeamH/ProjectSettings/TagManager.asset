@@ -7,7 +7,6 @@ TagManager:
   - Ground
   - SafeZone
   - MoveFloor
-  - acid
   layers:
   - Default
   - TransparentFX

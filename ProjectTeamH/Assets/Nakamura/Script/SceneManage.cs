@@ -19,5 +19,13 @@ public class SceneManage : MonoBehaviour
         {
             SceneManager.LoadScene(SceneName);
         }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            // 現在のScene名を取得する
+            Scene loadScene = SceneManager.GetActiveScene();
+            // Sceneの読み直し
+            SceneManager.LoadScene(loadScene.name);
+        }
     }
 }

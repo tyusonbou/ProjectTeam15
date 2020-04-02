@@ -5,9 +5,22 @@ using UnityEngine;
 public class Acid : MonoBehaviour
 {
     [SerializeField]
-    byte r, g, b;
-    [SerializeField]
     bool neutral;
+    [SerializeField]
+    bool deathFrag;
+    [SerializeField]
+    float acidTimer;
+
+    [SerializeField]
+    Color acidColor;
+    [SerializeField]
+    Color neutralColor;
+
+    [Range(0f, 1f)]
+    public float colorTimer;
+    [SerializeField]
+    AnimationCurve curve;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,42 +30,69 @@ public class Acid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (neutral)
+        ToAcid();
+
+        if (deathFrag)
         {
-            StartCoroutine("ToAcid");
+            if (!neutral)
+            {
+                Destroy(GameObject.Find("Player"));
+            }
         }
     }
 
-    private IEnumerator ToAcid()
+    //中和から酸へ変化
+    private void ToAcid()
     {
-        yield return new WaitForSeconds(5.0f);
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = new Color32(255, 255, 0, 255);
-        neutral = false;
-
-        yield break;
+        if (neutral)
+        {
+            acidTimer += Time.deltaTime;
+            colorTimer += (Time.deltaTime)/5;
+            if (acidTimer >= 5)
+            {
+                neutral = false;
+            }
+            spriteRenderer.color = Color.Lerp(neutralColor, acidColor, curve.Evaluate(colorTimer));
+        }
+        if (!neutral)
+        {
+            spriteRenderer.color = acidColor;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        //プレイヤーの死亡判定
         if ((col.gameObject.tag == "Player")&&(!neutral))
         {
             Destroy(col.gameObject);
         }
+        if((col.gameObject.tag == "Player") && (neutral))
+        {
+            deathFrag = true;
+        }
+
+        //中和剤判定
         if (col.gameObject.tag == "Neutralizer")
         {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.color = new Color32(0, 255, 100, 255);
-            neutral = true;
             Destroy(col.gameObject);
+            if (!neutral)
+            {
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.color = neutralColor;
+                neutral = true;
+                acidTimer = 0;
+                colorTimer = 0;
+            }
         }
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        if ((col.gameObject.tag == "Player") && (!neutral))
+        if (col.gameObject.tag == "Player")
         {
-            Destroy(col.gameObject);
+            deathFrag = false;
         }
     }
 }

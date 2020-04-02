@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float jumpThereshold;
-    public float runForce;
+    //public float runForce;
     public float runSpeed;
     public float runThereshold;
-    public float AttackSpeed;
+    //public float AttackSpeed;
     public float EnemyAttack;
 
     public float umbrellaHP = 10;
@@ -85,36 +85,28 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetInputKey();
-        ChangeState();
-        UseNeutralizer();
-        //ChangeAnimation();
+        GetInputKey(); //キー入力
+        ChangeState(); //状態変化
+        UseNeutralizer(); //中和剤使用
+        //ChangeAnimation(); //アニメーション
 
-        if (!isKnockBack)
-        {
-            Move();
-        }
+        Move();　//移動
         
-        KnockBack();
+        //KnockBack(); //ノックバック
 
+        //死亡処理
         if(isRain==true && !isUmbrella)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        if ((!isKnockBack))
-        {
-            
-            
-                //左右移動
-                transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
-            
+        //左右移動
+        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
 
-            Attack();
-        }
+        UseUmbrella();//傘をさす
     }
 
     void GetInputKey()
@@ -139,11 +131,12 @@ public class PlayerController : MonoBehaviour {
 
     void ChangeState()
     {
+        //落下、上昇してなければ接地
         if (Mathf.Abs(rb2d.velocity.y) > jumpThereshold)
         {
             isGround = false;
         }
-
+        //接地かつ左右移動
         if ((Mathf.Abs(rb2d.velocity.x) > runThereshold) && (isGround)) 
         {
             isDash = true;
@@ -178,7 +171,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isUmbrella)
         {
-            state = "ATTACK";
+            state = "UMBRELLA";
         }
         if (isKnockBack)
         {
@@ -209,6 +202,7 @@ public class PlayerController : MonoBehaviour {
                 rb2d.velocity = Vector2.zero;
             }
         }
+        //傘時の落下速度
         if (isFall && isUmbrella)
         {
             if (umbrellaHP >= 7) { rb2d.velocity = rb2d.velocity = new Vector2(0, -FallSpped1); }
@@ -219,9 +213,9 @@ public class PlayerController : MonoBehaviour {
        
     }
 
-    void Attack()
+    //傘をさす
+    void UseUmbrella()
     {
-        //傘をさす
         if (Input.GetKey(KeyCode.Q)  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
@@ -238,9 +232,7 @@ public class PlayerController : MonoBehaviour {
         {
             umbrellaHP -= Time.deltaTime;
 
-            
-
-            //後隙
+            //傘の耐久時間
             if (umbrellaHP <= UmHpLimit)
             {
                 isUmbrella = false;
@@ -274,6 +266,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //中和剤使用
     void UseNeutralizer()
     {
         if (Input.GetKeyDown(KeyCode.W))

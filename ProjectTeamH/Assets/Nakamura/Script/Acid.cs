@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Acid : MonoBehaviour
+public class Acid_ : MonoBehaviour
 {
     [SerializeField]
     bool neutral;

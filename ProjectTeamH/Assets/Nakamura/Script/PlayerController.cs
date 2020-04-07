@@ -85,17 +85,25 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+
         GetInputKey(); //キー入力
         ChangeState(); //状態変化
         UseNeutralizer(); //中和剤使用
         //ChangeAnimation(); //アニメーション
 
-        Move();　//移動
-        
+        Move(); //移動
+
         //KnockBack(); //ノックバック
 
+        //左右移動
+        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
+
+        UseUmbrella();//傘をさす
+
         //死亡処理
-        if(isRain==true && !isUmbrella)
+        if (isRain==true && !isUmbrella)
         {
             Destroy(gameObject);
         }
@@ -103,10 +111,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //左右移動
-        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
-
-        UseUmbrella();//傘をさす
+        
     }
 
     void GetInputKey()

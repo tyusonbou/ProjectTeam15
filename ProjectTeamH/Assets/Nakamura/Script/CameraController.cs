@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+
         Vector3 playerPos = player.transform.position;
         if (Horizontal == true)
         {

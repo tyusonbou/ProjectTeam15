@@ -18,7 +18,10 @@ public class Neutralizer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 
     

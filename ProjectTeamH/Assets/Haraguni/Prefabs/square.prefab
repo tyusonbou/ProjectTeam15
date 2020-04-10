@@ -7,7 +7,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6931106704275069746}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -185,6 +185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: baketsu
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632182, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: useEndTime
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1136815028d2a3a46be1fba0322fccf1, type: 3}

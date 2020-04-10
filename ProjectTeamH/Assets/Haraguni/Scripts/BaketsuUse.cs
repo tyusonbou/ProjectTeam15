@@ -7,6 +7,7 @@ public class BaketsuUse : MonoBehaviour
     private GameObject baketsu;
     void Start()
     {
+        //使うバケツを取得する
         baketsu = gameObject.transform.Find("baketsu").gameObject;
     }
 
@@ -14,6 +15,7 @@ public class BaketsuUse : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            //バケツを表示する
             baketsu.SetActive(true);
         }
     }

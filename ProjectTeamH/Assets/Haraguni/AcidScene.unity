@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Acid
       objectReference: {fileID: 0}
+    - target: {fileID: 4587523472641524256, guid: 37723015f2755864d8d268b26517684d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Acid
+      objectReference: {fileID: 0}
     - target: {fileID: 4587523472641524258, guid: 37723015f2755864d8d268b26517684d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -278,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 6931106704715182298, guid: 0d43e08a14d39204ca97e63c3968cb57,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6931106704715182298, guid: 0d43e08a14d39204ca97e63c3968cb57,
         type: 3}

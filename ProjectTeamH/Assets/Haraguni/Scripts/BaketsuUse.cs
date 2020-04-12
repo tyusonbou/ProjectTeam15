@@ -5,10 +5,12 @@ using UnityEngine;
 public class BaketsuUse : MonoBehaviour
 {
     private GameObject baketsu;
+    private Baketsu bake;
     void Start()
     {
         //使うバケツを取得する
         baketsu = gameObject.transform.Find("baketsu").gameObject;
+        bake = baketsu.GetComponent<Baketsu>();
     }
 
     void Update()
@@ -17,6 +19,11 @@ public class BaketsuUse : MonoBehaviour
         {
             //バケツを表示する
             baketsu.SetActive(true);
+        }
+
+        if(bake.IsMax())
+        {
+            bake.HealthMinus();
         }
     }
 }

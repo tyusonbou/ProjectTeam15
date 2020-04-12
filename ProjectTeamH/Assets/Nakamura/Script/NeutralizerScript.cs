@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Neutralizer : MonoBehaviour
+public class NeutralizerScript : MonoBehaviour
 {
+    [SerializeField]
+    static bool isGround;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGround = false;
     }
 
     // Update is called once per frame
@@ -18,11 +20,19 @@ public class Neutralizer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGround = true;
+        }
+
+        if ((collision.gameObject.tag == "Player"))
         {
             Destroy(gameObject);
         }
     }
 
-    
+    public static bool ReturnGround()
+    {
+        return isGround;
+    }
 }

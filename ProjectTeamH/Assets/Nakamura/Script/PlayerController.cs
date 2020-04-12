@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     public float FallSpped3;
 
     public int Hp;
+    static int NeutralizerCount;
 
     public GameObject Umbrella;
     public GameObject Neutralizer;
@@ -69,6 +70,7 @@ public class PlayerController : MonoBehaviour {
         renderer = GetComponent<SpriteRenderer>();
 
         Hp = 12;
+        NeutralizerCount = 0;
 
         Umbrella.SetActive(false);
         LRState = "RIGHT";
@@ -274,7 +276,7 @@ public class PlayerController : MonoBehaviour {
     //中和剤使用
     void UseNeutralizer()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if ((Input.GetKeyDown(KeyCode.W)) && (NeutralizerCount>=1))
         {
             if(LRState=="RIGHT")
             {
@@ -284,6 +286,7 @@ public class PlayerController : MonoBehaviour {
             {
                 Instantiate(Neutralizer, transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
             }
+            NeutralizerCount -= 1;
         }
     }
 
@@ -298,6 +301,10 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.tag == "SafeZone")
         {
             isRain = false;
+        }
+        if ((col.gameObject.tag == "Neutralizer"))
+        {
+            NeutralizerCount += 1;
         }
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
@@ -406,5 +413,9 @@ public class PlayerController : MonoBehaviour {
     public static bool GetGoal()
     {
         return isGoal;
+    }
+    public static int GetNeutralizer()
+    {
+        return NeutralizerCount;
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #if UNITY_EDITOR
-using UnityEditor;      
+using UnityEditor;
 #endif
 
 public class MoveFloor : MonoBehaviour
@@ -23,6 +23,8 @@ public class MoveFloor : MonoBehaviour
     private int FlagNo;//床とスイッチの紐づけ
     [SerializeField]
     private bool MoveDirectionFlag;//動く方向
+    [SerializeField]
+    private bool SwichType;//スイッチ式かどうか
 
     void Start()
     {
@@ -33,20 +35,38 @@ public class MoveFloor : MonoBehaviour
 
     void Update()
     {
-        //MoveDirectionFlagがfalseなら横方向
-        if (MoveDirectionFlag == false)
+        //スイッチ式なら
+        if (SwichType == true)
         {
             if (FlagManager.Instance.flags[FlagNo] == true)
+            {
+                //MoveDirectionFlagがfalseなら横方向
+                if (MoveDirectionFlag == false)
+                {
+                    this.moveTime += Time.deltaTime;
+                    //X座標のみ横移動
+                    this.rb.transform.position = new Vector2(defaultpass.x + Mathf.PingPong(moveTime * speed, length), defaultpass.y);
+                }
+                //MoveDirectionFlagがtrueなら縦方向
+                else if (MoveDirectionFlag == true)
+                {
+                        this.moveTime += Time.deltaTime;
+                        //Y座標のみ横移動
+                        this.rb.transform.position = new Vector2(defaultpass.x, defaultpass.y + Mathf.PingPong(moveTime * speed, length));
+                }
+            }
+        }
+        else if(SwichType == false)
+        {
+            //MoveDirectionFlagがfalseなら横方向
+            if (MoveDirectionFlag == false)
             {
                 this.moveTime += Time.deltaTime;
                 //X座標のみ横移動
                 this.rb.transform.position = new Vector2(defaultpass.x + Mathf.PingPong(moveTime * speed, length), defaultpass.y);
             }
-        }
-        //MoveDirectionFlagがtrueなら縦方向
-        else if (MoveDirectionFlag == true)
-        {
-            if (FlagManager.Instance.flags[FlagNo] == true)
+            //MoveDirectionFlagがtrueなら縦方向
+            else if (MoveDirectionFlag == true)
             {
                 this.moveTime += Time.deltaTime;
                 //Y座標のみ横移動
@@ -84,7 +104,7 @@ public class MoveFloor : MonoBehaviour
             // -- カスタム表示
 
             // -- 速度 --
-            move.speed = EditorGUILayout.FloatField("速度",move.speed);
+            move.speed = EditorGUILayout.FloatField("速度", move.speed);
 
             // -- 動く範囲 --
             move.length = EditorGUILayout.FloatField("動く範囲", move.length);
@@ -94,6 +114,9 @@ public class MoveFloor : MonoBehaviour
 
             // -- 移動方向 --
             move.MoveDirectionFlag = EditorGUILayout.Toggle("チェックなら縦移動", move.MoveDirectionFlag);
+
+            // -- スイッチ式かどうか
+            move.SwichType = EditorGUILayout.Toggle("スイッチ式かどうか", move.SwichType);
 
             //値の変更を保存
             EditorUtility.SetDirty(move);

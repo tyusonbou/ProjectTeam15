@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float jumpThereshold;
-    public float runForce;
+    //public float runForce;
     public float runSpeed;
     public float runThereshold;
-    public float AttackSpeed;
+    //public float AttackSpeed;
     public float EnemyAttack;
 
     public float umbrellaHP = 10;
@@ -16,10 +16,16 @@ public class PlayerController : MonoBehaviour {
     public float UmHpMaxLimit;
     public float invisibleInterval;
 
+    public float FallSpped1;
+    public float FallSpped2;
+    public float FallSpped3;
+
     public int Hp;
+    static int NeutralizerCount;
 
     public GameObject Umbrella;
-    
+    public GameObject Neutralizer;
+
 
     [SerializeField]
     bool isGround;
@@ -35,10 +41,12 @@ public class PlayerController : MonoBehaviour {
     public bool isCoolTime;
     [SerializeField]
     bool isRain;
+    static bool isGetKey;
+    static bool isGoal;
 
     public bool isKnockBack;
 
-    int key = 0;
+    int LR = 0;
     
     float invisibleTimer = 0;
 
@@ -53,6 +61,8 @@ public class PlayerController : MonoBehaviour {
 
     private new SpriteRenderer renderer;
 
+    private GameObject Key;
+
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
@@ -60,58 +70,66 @@ public class PlayerController : MonoBehaviour {
         renderer = GetComponent<SpriteRenderer>();
 
         Hp = 12;
+        NeutralizerCount = 0;
 
         Umbrella.SetActive(false);
         LRState = "RIGHT";
+
+        isGoal = false;
+
+        Key = GameObject.Find("Key");
+        if (Key == null)
+        {
+            isGetKey = true;
+        }
+        else isGetKey = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GetInputKey();
-        ChangeState();
-        //ChangeAnimation();
 
-        if (!isKnockBack)
-        {
-            Move();
-        }
-        
-        KnockBack();
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-        if(isRain==true && !isUmbrella)
+        GetInputKey(); //キー入力
+        ChangeState(); //状態変化
+        UseNeutralizer(); //中和剤使用
+        //ChangeAnimation(); //アニメーション
+
+        Move(); //移動
+
+        //KnockBack(); //ノックバック
+
+        //左右移動
+        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
+
+        UseUmbrella();//傘をさす
+
+        //死亡処理
+        if (isRain==true && !isUmbrella)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        if ((!isKnockBack))
-        {
-            
-            
-                //左右移動
-                transform.position += new Vector3(runSpeed * Time.deltaTime * key * stateEffect, 0, 0);
-            
-
-            Attack();
-        }
+        
     }
 
     void GetInputKey()
     {
-        key = 0;
+        LR = 0;
         if ((!isDash) && (!isKnockBack))
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
-                key = 1;
+                LR = 1;
                 LRState = "RIGHT";
             }
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
-                key = -1;
+                LR = -1;
                 LRState = "LEFT";
             }
         }
@@ -120,11 +138,12 @@ public class PlayerController : MonoBehaviour {
 
     void ChangeState()
     {
+        //落下、上昇してなければ接地
         if (Mathf.Abs(rb2d.velocity.y) > jumpThereshold)
         {
             isGround = false;
         }
-
+        //接地かつ左右移動
         if ((Mathf.Abs(rb2d.velocity.x) > runThereshold) && (isGround)) 
         {
             isDash = true;
@@ -134,7 +153,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isGround == true)
         {
-            if (key != 0)
+            if (LR != 0)
             {
                 state = "RUN";
             }
@@ -159,7 +178,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isUmbrella)
         {
-            state = "ATTACK";
+            state = "UMBRELLA";
         }
         if (isKnockBack)
         {
@@ -180,16 +199,7 @@ public class PlayerController : MonoBehaviour {
             }
             
         }
-        //else if(isJump)
-        //{
-        //    //二段ジャンプ
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        rb2d.velocity = Vector2.zero;
-        //        rb2d.AddForce(Vector2.up * jumpForce);
-        //        isJump = false;
-        //    }
-        //}
+        
 
         if (!isFall)
         {
@@ -199,20 +209,20 @@ public class PlayerController : MonoBehaviour {
                 rb2d.velocity = Vector2.zero;
             }
         }
+        //傘時の落下速度
         if (isFall && isUmbrella)
         {
-            if (umbrellaHP >= 7) { rb2d.velocity = Vector2.zero; }
-            if (umbrellaHP >= 3 && umbrellaHP < 7) { rb2d.velocity = new Vector2(0, -0.5f); }
-            if (umbrellaHP < 3) { rb2d.velocity = new Vector2(0, -1); }
+            if (umbrellaHP >= 7) { rb2d.velocity = rb2d.velocity = new Vector2(0, -FallSpped1); }
+            if (umbrellaHP >= 3 && umbrellaHP < 7) { rb2d.velocity = new Vector2(0, -FallSpped2); }
+            if (umbrellaHP < 3) { rb2d.velocity = new Vector2(0, -FallSpped3); }
         }
         
-        //float speedX = Mathf.Abs(rb2d.velocity.x);
-      
+       
     }
 
-    void Attack()
+    //傘をさす
+    void UseUmbrella()
     {
-        //傘をさす
         if (Input.GetKey(KeyCode.Q)  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
@@ -229,9 +239,7 @@ public class PlayerController : MonoBehaviour {
         {
             umbrellaHP -= Time.deltaTime;
 
-            
-
-            //後隙
+            //傘の耐久時間
             if (umbrellaHP <= UmHpLimit)
             {
                 isUmbrella = false;
@@ -265,6 +273,23 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //中和剤使用
+    void UseNeutralizer()
+    {
+        if ((Input.GetKeyDown(KeyCode.W)) && (NeutralizerCount>=1))
+        {
+            if(LRState=="RIGHT")
+            {
+                Instantiate(Neutralizer, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+            }
+            if (LRState == "LEFT")
+            {
+                Instantiate(Neutralizer, transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+            }
+            NeutralizerCount -= 1;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Ground")
@@ -276,6 +301,10 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.tag == "SafeZone")
         {
             isRain = false;
+        }
+        if ((col.gameObject.tag == "Neutralizer"))
+        {
+            NeutralizerCount += 1;
         }
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
@@ -292,14 +321,16 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddForce(Vector2.zero);
             rb2d.AddForce(knockBackDirection* EnemyAttack);
         }
-        //if ((col.gameObject.tag == "Enemy") && (isUmbrella) && (isAttack2)) 
-        //{
-        //    rb2d.velocity = Vector2.zero;
-        //    rb2d.AddForce(Vector2.up * jumpForce);
-        //    isJump = true;
-        //}
 
-        
+        if (col.gameObject.tag == "Key")
+        {
+            isGetKey = true;
+        }
+        if ((col.gameObject.tag == "Goal") && (isGetKey)) 
+        {
+            isGoal = true;
+        }
+
     }
     private void OnTriggerStay2D(Collider2D col)
     {
@@ -374,5 +405,17 @@ public class PlayerController : MonoBehaviour {
 
             preveState = state;
         }
+    }
+    public static bool GetKey()
+    {
+        return isGetKey;
+    }
+    public static bool GetGoal()
+    {
+        return isGoal;
+    }
+    public static int GetNeutralizer()
+    {
+        return NeutralizerCount;
     }
 }

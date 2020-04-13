@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3507134327002878611}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 300
   jumpThereshold: 0.1
-  runForce: 10
-  runSpeed: 5
+  runForce: 3
+  runSpeed: 3
   runThereshold: 10
   AttackSpeed: 0
   EnemyAttack: 0
@@ -186,8 +186,13 @@ MonoBehaviour:
   UmHpLimit: 0
   UmHpMaxLimit: 10
   invisibleInterval: 0
+  FallSpped1: 0.6
+  FallSpped2: 0.75
+  FallSpped3: 0.9
   Hp: 0
   Umbrella: {fileID: 3507134326102658996}
+  Neutralizer: {fileID: 9011737067881057822, guid: a86db3102da46564fb5691a5e7d135f4,
+    type: 3}
   isGround: 0
   isJump: 1
   isFall: 0

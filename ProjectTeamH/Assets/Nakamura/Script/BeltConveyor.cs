@@ -7,14 +7,14 @@ public class BeltConveyor : MonoBehaviour
     [SerializeField]
     float speed;
     [SerializeField]
-    /*static*/ bool LRSwich;
+    /*static*/ bool LRSwich;//左右切り替え
 
     float LR;
 
     // Start is called before the first frame update
     void Start()
     {
-        LR = 1;
+        LR = 1;//初期状態は右
     }
 
     // Update is called once per frame
@@ -22,11 +22,11 @@ public class BeltConveyor : MonoBehaviour
     {
         if(LRSwich)
         {
-            LR = -1;
+            LR = -1;//左に変更
         }
         else
         {
-            LR = 1;
+            LR = 1;//右に変更
         }
     }
 

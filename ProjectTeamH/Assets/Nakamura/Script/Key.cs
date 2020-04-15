@@ -14,11 +14,11 @@ public class Key : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }//ポーズ時停止
 
         if (PlayerController.GetKey())
         {
-            Destroy(gameObject);
+            Destroy(gameObject);//消滅
         }
     }
 

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nakamura/Scene/ProtoStage2.unity
     guid: a4ca4045c89d0ca4c91cf3ddd97712e6
+  - enabled: 1
+    path: Assets/Shimada/Scene/Title.unity
+    guid: a6e879ade36c784429cb4ae2c96aca94
+  - enabled: 1
+    path: Assets/Shimada/Scene/Ending.unity
+    guid: b8abb0c747ab87443b47564a6e80025a
   m_configObjects: {}

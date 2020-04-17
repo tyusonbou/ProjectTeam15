@@ -19,16 +19,19 @@ public class PauseScript : MonoBehaviour
 
     string state;
 
+    private GameObject Player;
+
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("Player");
         state = "CLOSE";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if ((Input.GetKeyDown(KeyCode.P)) && (Player != null))
         {   //　ポーズUIのアクティブ、非アクティブを切り替え
             pauseUI.SetActive(!pauseUI.activeSelf);
 

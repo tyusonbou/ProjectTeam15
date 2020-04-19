@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5b39b38a3c6b5ce458f318a1c478f705, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3676,7 +3676,7 @@ MonoBehaviour:
   - ProtoStage
   - ProtoStage2
   - ProtoStage3
-  - 
+  - ProtoStage4
   - 
   - 
   - 

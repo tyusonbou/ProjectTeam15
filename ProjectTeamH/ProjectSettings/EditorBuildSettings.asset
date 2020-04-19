@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Nakamura/Scene/StageSelect.unity
+    guid: 23bfc237c70086f46a3750005b45dc60
+  - enabled: 1
     path: Assets/Nakamura/Scene/ProtoStage.unity
     guid: f69059a31c12a5e4fa02f9c2d2647da9
   - enabled: 1

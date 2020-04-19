@@ -18,17 +18,21 @@ public class PauseScript : MonoBehaviour
     private Text TitleBackText;
 
     string state;
+    float menuSelect;
+    private GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("Player");
         state = "CLOSE";
+        menuSelect = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if ((Input.GetButtonDown("START")) && (Player != null))
         {   //　ポーズUIのアクティブ、非アクティブを切り替え
             pauseUI.SetActive(!pauseUI.activeSelf);
 
@@ -48,8 +52,15 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
+            menuSelect = 0;
+        }
+        else
+        {
+            menuSelect = 1;
+        }
 
-        
     }
 
     //ポーズ画面の操作
@@ -62,16 +73,16 @@ public class PauseScript : MonoBehaviour
                 RestartText.color = Color.black;
                 TitleBackText.color = Color.black;
 
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetButtonDown("A"))
                 {
                     //　ポーズUIのアクティブ、非アクティブを切り替え
                     pauseUI.SetActive(!pauseUI.activeSelf);
@@ -84,16 +95,16 @@ public class PauseScript : MonoBehaviour
                 RestartText.color = Color.red;
                 TitleBackText.color = Color.black;
 
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetButtonDown("A"))
                 {
                     // 現在のScene名を取得する
                     Scene loadScene = SceneManager.GetActiveScene();
@@ -107,11 +118,11 @@ public class PauseScript : MonoBehaviour
                 CloseText.color = Color.black;
                 RestartText.color = Color.black;
                 TitleBackText.color = Color.red;
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0)) 
                 {
                     state = "RESTART";
                 }

@@ -121,13 +121,13 @@ public class PlayerController : MonoBehaviour {
         LR = 0;
         if ((!isDash) && (!isKnockBack))
         {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 LR = 1;
                 LRState = "RIGHT";
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 LR = -1;
                 LRState = "LEFT";
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour {
         if (isGround)
         {
             //ジャンプ
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("A"))
             {
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(Vector2.up * jumpForce);
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour {
         if (!isFall)
         {
             //ジャンプ強さ
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetButtonUp("A"))
             {
                 rb2d.velocity = Vector2.zero;
             }
@@ -223,12 +223,12 @@ public class PlayerController : MonoBehaviour {
     //傘をさす
     void UseUmbrella()
     {
-        if (Input.GetKey(KeyCode.Q)  && !isCoolTime) 
+        if (Input.GetButton("RB")  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
             isUmbrella = true;
         }
-        else if (!Input.GetKey(KeyCode.Q))
+        else if (!Input.GetButton("RB"))
         {
             Umbrella.SetActive(false);
             isUmbrella = false;
@@ -276,7 +276,7 @@ public class PlayerController : MonoBehaviour {
     //中和剤使用
     void UseNeutralizer()
     {
-        if ((Input.GetKeyDown(KeyCode.W)) && (NeutralizerCount>=1))
+        if ((Input.GetButtonDown("X")) && (NeutralizerCount>=1))
         {
             if(LRState=="RIGHT")
             {

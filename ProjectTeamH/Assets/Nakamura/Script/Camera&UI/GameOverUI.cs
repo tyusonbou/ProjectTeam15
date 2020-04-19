@@ -19,12 +19,14 @@ public class GameOverUI : MonoBehaviour
     private Text TitleBackText;
 
     string state;
+    float menuSelect;
 
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
         state = "RESTART";
+        menuSelect = 0;
     }
 
     // Update is called once per frame
@@ -39,14 +41,23 @@ public class GameOverUI : MonoBehaviour
         //　ゲームオーバーUIが表示されてる時は停止
         if (GameoverUI.activeSelf)
         {
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
 
             ChangeUI();
         }
         else
         {
             //　ゲームオーバーUIが表示されてなければ通常通り進行
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
+        }
+
+        if (Input.GetAxisRaw("Vertical") == 0)
+        {
+            menuSelect = 0;
+        }
+        else
+        {
+            menuSelect = 1;
         }
     }
 
@@ -60,16 +71,16 @@ public class GameOverUI : MonoBehaviour
                 RestartText.color = Color.red;
                 TitleBackText.color = Color.black;
 
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetButtonDown("A"))
                 {
                     // 現在のScene名を取得する
                     Scene loadScene = SceneManager.GetActiveScene();
@@ -83,11 +94,11 @@ public class GameOverUI : MonoBehaviour
 
                 RestartText.color = Color.black;
                 TitleBackText.color = Color.red;
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
                 }

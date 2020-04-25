@@ -7,7 +7,7 @@ public class BeltConveyor : MonoBehaviour
     [SerializeField]
     float speed;
     [SerializeField]
-    static bool LRSwich;//左右切り替え
+    public bool LRSwich;//左右切り替え
 
     public GameObject allow1;
     public GameObject allow2;
@@ -49,8 +49,5 @@ public class BeltConveyor : MonoBehaviour
         col.gameObject.transform.position += new Vector3(speed * Time.deltaTime * LR, 0, 0);
     }
 
-    public static bool ChangeLR()
-    {
-        return LRSwich;
-    }
+   
 }

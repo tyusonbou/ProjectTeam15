@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BeltConvayorSwich : MonoBehaviour
 {
+    [SerializeField]
+    GameObject Convayor;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class BeltConvayorSwich : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            BeltConveyor.ChangeLR();
+            Convayor.GetComponent<BeltConveyor>().LRSwich = !Convayor.GetComponent<BeltConveyor>().LRSwich;
         }
     }
 }

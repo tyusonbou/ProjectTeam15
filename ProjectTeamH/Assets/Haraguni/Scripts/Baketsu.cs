@@ -25,12 +25,23 @@ public class Baketsu : MonoBehaviour
     private GameObject parentObj;   //親（プレイヤー）
     private Vector3 parentVec;      //親（プレイヤー）の位置
 
-    public float hp;
+    //最初の耐久値
+    [SerializeField]
+    private float setHp;
+    public float hp;            //耐久値
+
+    //耐久値が０になってから回復するまでの時間
+    [SerializeField]
+    private float reUseTime;
+    private float recoveryTime; //耐久値が回復してる時間
+
     void Start()
     {
         isMax = false;
 
         useTime = 0.0f;
+        recoveryTime = 0.0f;
+        hp = setHp;
 
         GetComponent<BoxCollider2D>().enabled = false;
 
@@ -41,9 +52,14 @@ public class Baketsu : MonoBehaviour
 
     void Update()
     {
-        if(hp<=0)  Destroy(this.gameObject); 
+        if (hp <= 0) {
+            //耐久値が無くなったら、一度だけ呼び出して酸を出して酸を入れてない状態にする。
+            useTime = useEndTime;
+            Spill();
+            return;
+        } 
         parentVec = parentObj.transform.position;
-        pos = new Vector3(parentVec.x + 0.64f, parentVec.y, parentVec.z); // +0.64fはプレイヤーとの距離（仮）
+        pos = new Vector3(parentVec.x, parentVec.y, parentVec.z); // +0.64fはプレイヤーとの距離（仮）
         if (!isMax) { Pump(); }
         if (isMax) { Spill(); }
     }
@@ -104,7 +120,6 @@ public class Baketsu : MonoBehaviour
             //酸以外のオブジェクトに触れた場合、そのまま戻す
             else
             {
-                renderer.sprite = spr[0];
                 pos.y = 0.0f;
                 GetComponent<BoxCollider2D>().enabled = false;
                 transform.position = pos;
@@ -121,6 +136,18 @@ public class Baketsu : MonoBehaviour
     public bool IsMax()
     {
         return isMax;
+    }
+    public void HpRecovery()
+    {
+        if (hp <= 0)
+        {
+            hp=0;
+            recoveryTime += Time.deltaTime;
+            if(recoveryTime>=reUseTime)
+            {
+                hp = setHp;
+            }
+        }
     }
     
 }

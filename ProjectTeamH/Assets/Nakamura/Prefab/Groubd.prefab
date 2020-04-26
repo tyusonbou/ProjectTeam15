@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5566510435729650474}
   - component: {fileID: 5566510435729650473}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Groubd
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

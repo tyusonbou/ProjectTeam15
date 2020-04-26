@@ -281,3 +281,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   LRSwich: 0
+  allow1: {fileID: 1719469320}
+  allow2: {fileID: 234345270}

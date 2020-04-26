@@ -14,8 +14,8 @@ public class ShutterScript : MonoBehaviour
     public float OpenAreaR;
     public float OpenAreaL;
 
-    [SerializeField]
-    private bool OpenFrag;
+    
+    public bool OpenFrag;
 
     // Start is called before the first frame update
     void Start()

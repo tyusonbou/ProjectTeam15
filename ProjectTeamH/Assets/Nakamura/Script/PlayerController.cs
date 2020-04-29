@@ -22,9 +22,11 @@ public class PlayerController : MonoBehaviour {
 
     public int Hp;
     static int NeutralizerCount;
+    public int BaketuPos;
 
     public GameObject Umbrella;
     public GameObject Neutralizer;
+    public GameObject Baketu;
 
 
     [SerializeField]
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour {
         GetInputKey(); //キー入力
         ChangeState(); //状態変化
         UseNeutralizer(); //中和剤使用
+        LRBaketu();
         //ChangeAnimation(); //アニメーション
 
         Move(); //移動
@@ -287,6 +290,18 @@ public class PlayerController : MonoBehaviour {
                 Instantiate(Neutralizer, transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
             }
             NeutralizerCount -= 1;
+        }
+    }
+
+    void LRBaketu()
+    {
+        if(LRState == "RIGHT")
+        {
+            Baketu.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y, transform.position.z);
+        }
+        if(LRState == "LEFT")
+        {
+            Baketu.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y, transform.position.z);
         }
     }
 

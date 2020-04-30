@@ -110,7 +110,7 @@ public class Baketsu : MonoBehaviour
         if (col.gameObject.tag == "Acid" && !isMax)
             {
                 isMax = true;
-                Destroy(col.gameObject);
+                //Destroy(col.gameObject);
                 renderer.sprite = spr[1];
                 //pos.y = 0.0f;中村望修正
                 transform.position = pos;

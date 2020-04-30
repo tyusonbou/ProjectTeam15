@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject Umbrella;
     public GameObject Neutralizer;
-    public GameObject Baketu;
+    public GameObject BaketuUse;
+    public GameObject baketu;
 
 
     [SerializeField]
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
     string state;
     string preveState;
-    string LRState;
+    static string LRState;
     float stateEffect = 1;
 
     private Rigidbody2D rb2d;
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        if (baketu.activeInHierarchy == true) { return; }
 
         GetInputKey(); //キー入力
         ChangeState(); //状態変化
@@ -297,11 +299,11 @@ public class PlayerController : MonoBehaviour {
     {
         if(LRState == "RIGHT")
         {
-            Baketu.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y, transform.position.z);
+            BaketuUse.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y, transform.position.z);
         }
         if(LRState == "LEFT")
         {
-            Baketu.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y, transform.position.z);
+            BaketuUse.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y, transform.position.z);
         }
     }
 
@@ -432,5 +434,9 @@ public class PlayerController : MonoBehaviour {
     public static int GetNeutralizer()
     {
         return NeutralizerCount;
+    }
+    public static string GetLRState()
+    {
+        return LRState;
     }
 }

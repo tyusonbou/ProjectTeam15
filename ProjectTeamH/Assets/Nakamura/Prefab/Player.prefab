@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1785945648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785945649}
+  m_Layer: 0
+  m_Name: Baketubject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1785945649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785945648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4141581843536503983}
+  m_Father: {fileID: 3507134327002878610}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3507134326102658996
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +124,7 @@ GameObject:
   - component: {fileID: 3507134327002878615}
   - component: {fileID: 3507134327002878614}
   - component: {fileID: 3507134327002878611}
+  - component: {fileID: 301171821}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -112,6 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3507134326102658998}
+  - {fileID: 1785945649}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,10 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 300
   jumpThereshold: 0.1
-  runForce: 3
   runSpeed: 3
   runThereshold: 10
-  AttackSpeed: 0
   EnemyAttack: 0
   umbrellaHP: 10
   UmHpLimit: 0
@@ -190,9 +221,12 @@ MonoBehaviour:
   FallSpped2: 0.75
   FallSpped3: 0.9
   Hp: 0
+  BaketuPos: 1
   Umbrella: {fileID: 3507134326102658996}
   Neutralizer: {fileID: 9011737067881057822, guid: a86db3102da46564fb5691a5e7d135f4,
     type: 3}
+  BaketuUse: {fileID: 1785945648}
+  baketu: {fileID: 4141581843536503981}
   isGround: 0
   isJump: 1
   isFall: 0
@@ -274,3 +308,110 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &301171821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507134327002878613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494cbd79d1765ef4abf472accf53c26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baketsu: {fileID: 4141581843536503981}
+  bake: {fileID: 4141581843536503985}
+--- !u!1001 &3507134326358816391
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1785945649}
+    m_Modifications:
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 707631016155632170, guid: 1136815028d2a3a46be1fba0322fccf1,
+        type: 3}
+      propertyPath: m_Name
+      value: baketsu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1136815028d2a3a46be1fba0322fccf1, type: 3}
+--- !u!1 &4141581843536503981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 707631016155632170, guid: 1136815028d2a3a46be1fba0322fccf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3507134326358816391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4141581843536503983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 707631016155632168, guid: 1136815028d2a3a46be1fba0322fccf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3507134326358816391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4141581843536503985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 707631016155632182, guid: 1136815028d2a3a46be1fba0322fccf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3507134326358816391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141581843536503981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6946f4c0202f4e24b9e603d6ba922d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

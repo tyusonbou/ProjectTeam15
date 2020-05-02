@@ -35,6 +35,8 @@ public class Baketsu : MonoBehaviour
     private float reUseTime;
     private float recoveryTime; //耐久値が回復してる時間
 
+    public bool coolTime;//バケツが壊れてる状態//中村望s追加
+
     void Start()
     {
         isMax = false;
@@ -42,6 +44,7 @@ public class Baketsu : MonoBehaviour
         useTime = 0.0f;
         recoveryTime = 0.0f;
         hp = setHp;
+        coolTime = false;
 
         GetComponent<BoxCollider2D>().enabled = false;
 
@@ -141,11 +144,13 @@ public class Baketsu : MonoBehaviour
     {
         if (hp <= 0)
         {
+            coolTime = true;
             hp=0;
             recoveryTime += Time.deltaTime;
             if(recoveryTime>=reUseTime)
             {
                 hp = setHp;
+                coolTime = false;
             }
         }
     }

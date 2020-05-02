@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: ProtoStage
+  SceneName: ProtoStage9
   SecretName: StageSelect
   SecretGoalCount: 1
 --- !u!1001 &935601982

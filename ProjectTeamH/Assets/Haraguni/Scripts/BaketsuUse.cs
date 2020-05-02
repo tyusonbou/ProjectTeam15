@@ -28,7 +28,7 @@ public class BaketsuUse : MonoBehaviour
         }
 
         //Bボタンで使用//中村望//4/27変更
-        if(Input.GetButtonDown("B") && bake.hp>=0)
+        if (Input.GetButtonDown("B") && bake.coolTime == false)
         {
             //バケツを表示する
             baketsu.SetActive(true);

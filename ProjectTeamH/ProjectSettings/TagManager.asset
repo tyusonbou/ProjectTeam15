@@ -7,10 +7,11 @@ TagManager:
   - Ground
   - SafeZone
   - MoveFloor
-
   - Key
   - Goal
   - Neutralizer
+  - Acid
+  - Object
   layers:
   - Default
   - TransparentFX

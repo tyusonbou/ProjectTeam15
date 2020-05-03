@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nakamura/Scene/ProtoStage9.unity
     guid: eccdfcd59bce156489305dd50108ad32
+  - enabled: 1
+    path: Assets/Nakamura/Scene/ProtoStageFinal.unity
+    guid: 3a16b08def94e5d41b5ab21d17544b60
   m_configObjects: {}

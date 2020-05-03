@@ -307,6 +307,14 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if ((col.gameObject.tag == "Neutralizer"))
+        {
+            NeutralizerCount += 1;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Ground")
@@ -319,10 +327,7 @@ public class PlayerController : MonoBehaviour {
         {
             isRain = false;
         }
-        if ((col.gameObject.tag == "Neutralizer"))
-        {
-            NeutralizerCount += 1;
-        }
+        
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
         {

@@ -12,6 +12,7 @@ TagManager:
   - Neutralizer
   - Acid
   - Object
+  - Other
   layers:
   - Default
   - TransparentFX

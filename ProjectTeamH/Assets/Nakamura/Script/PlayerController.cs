@@ -21,9 +21,13 @@ public class PlayerController : MonoBehaviour {
     public float FallSpped3;
 
     public int Hp;
+    static int NeutralizerCount;
+    public int BaketuPos;
 
     public GameObject Umbrella;
     public GameObject Neutralizer;
+    public GameObject BaketuUse;
+    public GameObject baketu;
 
 
     [SerializeField]
@@ -51,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 
     string state;
     string preveState;
-    string LRState;
+    static string LRState;
     float stateEffect = 1;
 
     private Rigidbody2D rb2d;
@@ -69,6 +73,7 @@ public class PlayerController : MonoBehaviour {
         renderer = GetComponent<SpriteRenderer>();
 
         Hp = 12;
+        NeutralizerCount = 0;
 
         Umbrella.SetActive(false);
         LRState = "RIGHT";
@@ -85,17 +90,27 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        if (baketu.activeInHierarchy == true) { return; }
+
         GetInputKey(); //キー入力
         ChangeState(); //状態変化
         UseNeutralizer(); //中和剤使用
+        LRBaketu();
         //ChangeAnimation(); //アニメーション
 
-        Move();　//移動
-        
+        Move(); //移動
+
         //KnockBack(); //ノックバック
 
+        //左右移動
+        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
+
+        UseUmbrella();//傘をさす
+
         //死亡処理
-        if(isRain==true && !isUmbrella)
+        if (isRain==true && !isUmbrella)
         {
             Destroy(gameObject);
         }
@@ -103,10 +118,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        //左右移動
-        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
-
-        UseUmbrella();//傘をさす
+        
     }
 
     void GetInputKey()
@@ -114,13 +126,13 @@ public class PlayerController : MonoBehaviour {
         LR = 0;
         if ((!isDash) && (!isKnockBack))
         {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 LR = 1;
                 LRState = "RIGHT";
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 LR = -1;
                 LRState = "LEFT";
@@ -184,7 +196,7 @@ public class PlayerController : MonoBehaviour {
         if (isGround)
         {
             //ジャンプ
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("A"))
             {
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(Vector2.up * jumpForce);
@@ -197,7 +209,7 @@ public class PlayerController : MonoBehaviour {
         if (!isFall)
         {
             //ジャンプ強さ
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetButtonUp("A"))
             {
                 rb2d.velocity = Vector2.zero;
             }
@@ -216,12 +228,12 @@ public class PlayerController : MonoBehaviour {
     //傘をさす
     void UseUmbrella()
     {
-        if (Input.GetKey(KeyCode.Q)  && !isCoolTime) 
+        if (Input.GetButton("RB")  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
             isUmbrella = true;
         }
-        else if (!Input.GetKey(KeyCode.Q))
+        else if (!Input.GetButton("RB"))
         {
             Umbrella.SetActive(false);
             isUmbrella = false;
@@ -269,7 +281,7 @@ public class PlayerController : MonoBehaviour {
     //中和剤使用
     void UseNeutralizer()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if ((Input.GetButtonDown("X")) && (NeutralizerCount>=1))
         {
             if(LRState=="RIGHT")
             {
@@ -279,6 +291,19 @@ public class PlayerController : MonoBehaviour {
             {
                 Instantiate(Neutralizer, transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
             }
+            NeutralizerCount -= 1;
+        }
+    }
+
+    void LRBaketu()
+    {
+        if(LRState == "RIGHT")
+        {
+            BaketuUse.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y, transform.position.z);
+        }
+        if(LRState == "LEFT")
+        {
+            BaketuUse.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y, transform.position.z);
         }
     }
 
@@ -293,6 +318,10 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.tag == "SafeZone")
         {
             isRain = false;
+        }
+        if ((col.gameObject.tag == "Neutralizer"))
+        {
+            NeutralizerCount += 1;
         }
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
@@ -401,5 +430,13 @@ public class PlayerController : MonoBehaviour {
     public static bool GetGoal()
     {
         return isGoal;
+    }
+    public static int GetNeutralizer()
+    {
+        return NeutralizerCount;
+    }
+    public static string GetLRState()
+    {
+        return LRState;
     }
 }

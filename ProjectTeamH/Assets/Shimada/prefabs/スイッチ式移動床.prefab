@@ -145,3 +145,4 @@ MonoBehaviour:
   length: 3
   FlagNo: 0
   MoveDirectionFlag: 0
+  SwichType: 0

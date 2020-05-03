@@ -10,6 +10,8 @@ TagManager:
   - Key
   - Goal
   - Neutralizer
+  - Acid
+  - Object
   layers:
   - Default
   - TransparentFX

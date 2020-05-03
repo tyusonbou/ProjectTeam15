@@ -27,7 +27,8 @@ public class BaketsuUse : MonoBehaviour
             isBreak = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && bake.hp>=0)
+        //Bボタンで使用//中村望//4/27変更
+        if (Input.GetButtonDown("B") && bake.coolTime == false)
         {
             //バケツを表示する
             baketsu.SetActive(true);

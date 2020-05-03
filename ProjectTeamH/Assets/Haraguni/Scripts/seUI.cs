@@ -19,25 +19,23 @@ public class seUI : MonoBehaviour
 
     void Update()
     {
-        if (!isSelect) return;
-
-        if (0<Input.GetAxisRaw("Vertical2"))
-        {
-            isSelect = false;
-            return;
-        }
+        //if (!isSelect) return;
+        //if (0<Input.GetAxisRaw("Vertical"))
+        //{
+        //    isSelect = false;
+        //    return;
+        //}
         MoveSlider();
 
     }
 
     public void MoveSlider()
     {
-        //moveCursorX += Input.GetAxis("Horizontal2")*0.001f;
-        if (Input.GetAxis("Horizontal2") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
             moveCursorX -= 0.1f;
         }
-        if (Input.GetAxis("Horizontal2") > 0)
+        if (Input.GetAxis("Horizontal") > 0)
         {
             moveCursorX += 0.1f;
         }

@@ -8,7 +8,6 @@ public class SelectSlider : MonoBehaviour
     private bgmUI bgm_UI;
     [SerializeField]
     private seUI se_UI;
-    private bool selBGM;
     void Start()
     {
         selBGM = true;
@@ -16,16 +15,15 @@ public class SelectSlider : MonoBehaviour
 
     void Update()
     {
-        if (!bgm_UI.IsSelect())
+        if (0 > Input.GetAxisRaw("Vertical"))
         {
-            Debug.Log("SELECTSE");
+            bgm_UI.NotSelect();
             se_UI.Select();
         }
-        if(!se_UI.IsSelect())
+        else if (0 < Input.GetAxisRaw("Vertical"))
         {
             se_UI.NotSelect();
             bgm_UI.Select();
         }
-
     }
 }

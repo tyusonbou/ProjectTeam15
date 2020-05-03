@@ -16,6 +16,7 @@ public class Baketsu : MonoBehaviour
     //バケツから出す酸
     [SerializeField]
     private GameObject acid;
+    [SerializeField]
     private float useTime; //汲む時間・零す時間
     //汲み終わる時間・零し終わる時間
     [SerializeField]
@@ -105,30 +106,30 @@ public class Baketsu : MonoBehaviour
             isMax = false;
             this.gameObject.SetActive(false);
         }
-        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
-        {
+    {
         //酸に触れたら酸を消す
         if (col.gameObject.tag == "Acid" && !isMax)
-            {
+        {
                 isMax = true;
                 //Destroy(col.gameObject);
                 renderer.sprite = spr[1];
                 //pos.y = 0.0f;中村望修正
                 transform.position = pos;
                 this.gameObject.SetActive(false);
-            }
+        }
 
-            //酸以外のオブジェクトに触れた場合、そのまま戻す
-            else
-            {
+        //酸以外のオブジェクトに触れた場合、そのまま戻す
+        else
+        {
                 //pos.y = 0.0f;中村望修正
                 GetComponent<BoxCollider2D>().enabled = false;
                 transform.position = pos;
                 this.gameObject.SetActive(false);
-            }
         }
+    }
 
     //耐久値減少
     public float HealthMinus()

@@ -17,7 +17,10 @@ public class TitleButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButtonDown("Submit"))
+        {
+            toGameScene();
+        }
     }
 
     public void toGameScene()

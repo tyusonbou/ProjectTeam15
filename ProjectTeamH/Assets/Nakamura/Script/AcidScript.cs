@@ -88,6 +88,11 @@ public class AcidScript : MonoBehaviour
                 colorTimer = 0;
             }
         }
+
+        if (col.gameObject.tag == "Key")
+        {
+            Destroy(col.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)

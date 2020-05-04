@@ -26,11 +26,14 @@ public class StageSelectScript : MonoBehaviour
     string PageState; //何ページ目か
     string StageState; //どのステージを選択しているか
 
+    float menuSelect;
+
     // Start is called before the first frame update
     void Start()
     {
         PageState = "PAGE1";
         StageState = "STAGE1";
+        menuSelect = 0;
     }
 
     // Update is called once per frame
@@ -39,12 +42,21 @@ public class StageSelectScript : MonoBehaviour
         PageChange();
         StageSelect();
         StageChoice();
+
+        if ((Input.GetAxisRaw("Horizontal") == 0))
+        {
+            menuSelect = 0;
+        }
+        else
+        {
+            menuSelect = 1;
+        }
     }
 
     //ステージ決定
     private void StageChoice()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("A"))
         {
             switch (PageState)
             {
@@ -216,7 +228,7 @@ public class StageSelectScript : MonoBehaviour
                     P3Pos.localPosition += new Vector3(PageSpeed, 0, 0);
                 }
                 
-                if(Input.GetKeyDown(KeyCode.R))
+                if(Input.GetButtonDown("RB"))
                 {
                     PageState = "PAGE2";
                 }
@@ -246,12 +258,12 @@ public class StageSelectScript : MonoBehaviour
                     P3Pos.localPosition += new Vector3(PageSpeed, 0, 0);
                 }
 
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetButtonDown("LB"))
                 {
                     PageState = "PAGE1";
                 }
 
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetButtonDown("RB"))
                 {
                     PageState = "PAGE3";
                 }
@@ -274,7 +286,7 @@ public class StageSelectScript : MonoBehaviour
                     P3Pos.localPosition -= new Vector3(PageSpeed, 0, 0);
                 }
 
-                if (Input.GetKeyDown(KeyCode.L))
+                if (Input.GetButtonDown("LB"))
                 {
                     PageState = "PAGE2";
                 }
@@ -287,8 +299,10 @@ public class StageSelectScript : MonoBehaviour
     //ステージ選択描画
     private void StageSelect()
     {
+        
+
         //ページ変更時にSTAGE1状態にする
-        if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.L))
+        if (Input.GetButtonDown("RB") || Input.GetButtonDown("LB"))
         {
             StageState = "STAGE1";
         }
@@ -306,11 +320,11 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE5";
                 }
@@ -327,15 +341,15 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE1";
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
                 }
@@ -352,15 +366,15 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE4";
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
                 }
@@ -377,11 +391,11 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE8";
                 }
@@ -398,11 +412,11 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE1";
                 }
@@ -419,15 +433,15 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE5";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
                 }
@@ -444,15 +458,15 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(scale.x, scale.y, scale.z);
                 Stages[8].transform.localScale = new Vector3(1, 1, 1);
 
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE8";
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
                 }
@@ -469,11 +483,11 @@ public class StageSelectScript : MonoBehaviour
                 Stages[7].transform.localScale = new Vector3(1, 1, 1);
                 Stages[8].transform.localScale = new Vector3(scale.x, scale.y, scale.z);
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE4";
                 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4587523472641524257}
   - component: {fileID: 4587523472641524259}
   - component: {fileID: 4587523472641524268}
+  - component: {fileID: 726976725}
   m_Layer: 0
   m_Name: Acid
   m_TagString: Acid
@@ -122,9 +123,24 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &726976725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587523472641524256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df24fc7e58221e94eafd33e527343415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyTime: 1
+  UpForce: 0
+  LRForce: 0

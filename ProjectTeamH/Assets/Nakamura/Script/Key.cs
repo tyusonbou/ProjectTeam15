@@ -16,11 +16,17 @@ public class Key : MonoBehaviour
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }//ポーズ時停止
 
-        if (PlayerController.GetKey())
-        {
-            Destroy(gameObject);//消滅
-        }
+        //if (PlayerController.GetKey())
+        //{
+        //    Destroy(gameObject);//消滅
+        //}
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

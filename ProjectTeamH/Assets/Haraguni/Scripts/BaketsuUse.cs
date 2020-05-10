@@ -13,7 +13,9 @@ public class BaketsuUse : MonoBehaviour
 
     void Update()
     {
-        if(bake.hp<=0)
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }//ポーズ時停止//中村望追記
+
+        if (bake.hp<=0)
         {
             bake.HpRecovery();
             if (!isBreak)

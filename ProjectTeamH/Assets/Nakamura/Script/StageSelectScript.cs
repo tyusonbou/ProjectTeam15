@@ -221,7 +221,7 @@ public class StageSelectScript : MonoBehaviour
 
                 BackPage.SetActive(false);
 
-                if (P1Pos.localPosition.x != 0)
+                if (P1Pos.localPosition.x < 0)
                 {
                     P1Pos.localPosition += new Vector3(PageSpeed, 0, 0);
                     P2Pos.localPosition += new Vector3(PageSpeed, 0, 0);

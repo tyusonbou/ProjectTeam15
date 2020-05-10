@@ -770,8 +770,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: ProtoStage9
-  SecretName: StageSelect
-  SecretGoalCount: 1
+  SecretName: 
+  SecretGoalCount: 0
 --- !u!1001 &935601982
 PrefabInstance:
   m_ObjectHideFlags: 0

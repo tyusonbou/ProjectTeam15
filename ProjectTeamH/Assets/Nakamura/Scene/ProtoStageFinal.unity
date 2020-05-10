@@ -2498,18 +2498,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 469634828, guid: 5a850d62c8123254b89ef33cf0cc1447, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785945648, guid: 5a850d62c8123254b89ef33cf0cc1447, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785945648, guid: 5a850d62c8123254b89ef33cf0cc1447, type: 3}
-      propertyPath: m_TagString
-      value: Other
-      objectReference: {fileID: 0}
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2569,11 +2557,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141581843536503981, guid: 5a850d62c8123254b89ef33cf0cc1447,
-        type: 3}
-      propertyPath: m_TagString
-      value: Other
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a850d62c8123254b89ef33cf0cc1447, type: 3}
@@ -4572,7 +4555,7 @@ PrefabInstance:
     - target: {fileID: 5410223670822367127, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: FloatingSpeed
-      value: 2000
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}

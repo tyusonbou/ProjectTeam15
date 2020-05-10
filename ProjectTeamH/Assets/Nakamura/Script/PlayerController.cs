@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     bool isRain;
     static bool isGetKey;
-    static bool isGoal;
+    //static bool isGoal;
 
     public bool isKnockBack;
 
@@ -78,14 +78,11 @@ public class PlayerController : MonoBehaviour {
         Umbrella.SetActive(false);
         LRState = "RIGHT";
 
-        isGoal = false;
+        isGetKey = false;
+        //isGoal = false;
 
         Key = GameObject.Find("Key");
-        if (Key == null)
-        {
-            isGetKey = true;
-        }
-        else isGetKey = false;
+        
 	}
 	
 	// Update is called once per frame
@@ -98,7 +95,7 @@ public class PlayerController : MonoBehaviour {
         ChangeState(); //状態変化
         UseNeutralizer(); //中和剤使用
         LRBaketu();
-        //ChangeAnimation(); //アニメーション
+        ChangeAnimation(); //アニメーション
 
         Move(); //移動
 
@@ -114,6 +111,12 @@ public class PlayerController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        if (Key == null)
+        {
+            isGetKey = true;
+        }
+        else isGetKey = false;
     }
 
     private void FixedUpdate()
@@ -295,15 +298,16 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    //バケツの向き
     void LRBaketu()
     {
         if(LRState == "RIGHT")
         {
-            BaketuUse.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y, transform.position.z);
+            BaketuUse.transform.position = new Vector3(transform.position.x + BaketuPos, transform.position.y - 0.25f, transform.position.z);
         }
         if(LRState == "LEFT")
         {
-            BaketuUse.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y, transform.position.z);
+            BaketuUse.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y - 0.25f, transform.position.z);
         }
     }
 
@@ -344,14 +348,14 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddForce(knockBackDirection* EnemyAttack);
         }
 
-        if (col.gameObject.tag == "Key")
-        {
-            isGetKey = true;
-        }
-        if ((col.gameObject.tag == "Goal") && (isGetKey)) 
-        {
-            isGoal = true;
-        }
+        //if (col.gameObject.tag == "Key")
+        //{
+        //    isGetKey = true;
+        //}
+        //if ((col.gameObject.tag == "Goal") && (isGetKey)) 
+        //{
+        //    isGoal = true;
+        //}
 
     }
     private void OnTriggerStay2D(Collider2D col)
@@ -374,7 +378,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (col.gameObject.tag == "SafeZone")
         {
-            
+            OnTriggerStay2D(col);
             isRain = true;
         }
     }
@@ -384,58 +388,58 @@ public class PlayerController : MonoBehaviour {
         
         if (LRState == "RIGHT")
         {
-            renderer.flipX = false;
+            transform.localRotation = new Quaternion(0, 0, 0, 0);
         }
         else if (LRState == "LEFT") 
         {
-            renderer.flipX = true;
+            transform.localRotation = new Quaternion(0, 180, 0, 0);
         }
 
-        if (preveState != state)
-        {
-            switch (state)
-            {
-                case "RUN":
-                    animator.SetBool("isRun", true);
-                    animator.SetBool("isJump", false);
-                    animator.SetBool("isAttack", false);
-                    animator.SetBool("isIdle", false);
-                    stateEffect = 1f;
-                    break;
-                case "JUMP":
-                    animator.SetBool("isRun", false);
-                    animator.SetBool("isJump", true);
-                    animator.SetBool("isAttack", false);
-                    animator.SetBool("isIdle", false);
-                    stateEffect = 1f;
-                    break;
-                case "ATTACK":
-                    animator.SetBool("isRun", false);
-                    animator.SetBool("isJump", false);
-                    animator.SetBool("isAttack", true);
-                    animator.SetBool("isIdle", false);
-                    stateEffect = 0.5f;
-                    break;
-                default:
-                    animator.SetBool("isRun", false);
-                    animator.SetBool("isJump", false);
-                    animator.SetBool("isAttack", false);
-                    animator.SetBool("isIdle", true);
-                    stateEffect = 1f;
-                    break;
-            }
+        //if (preveState != state)
+        //{
+        //    switch (state)
+        //    {
+        //        case "RUN":
+        //            animator.SetBool("isRun", true);
+        //            animator.SetBool("isJump", false);
+        //            animator.SetBool("isAttack", false);
+        //            animator.SetBool("isIdle", false);
+        //            stateEffect = 1f;
+        //            break;
+        //        case "JUMP":
+        //            animator.SetBool("isRun", false);
+        //            animator.SetBool("isJump", true);
+        //            animator.SetBool("isAttack", false);
+        //            animator.SetBool("isIdle", false);
+        //            stateEffect = 1f;
+        //            break;
+        //        case "ATTACK":
+        //            animator.SetBool("isRun", false);
+        //            animator.SetBool("isJump", false);
+        //            animator.SetBool("isAttack", true);
+        //            animator.SetBool("isIdle", false);
+        //            stateEffect = 0.5f;
+        //            break;
+        //        default:
+        //            animator.SetBool("isRun", false);
+        //            animator.SetBool("isJump", false);
+        //            animator.SetBool("isAttack", false);
+        //            animator.SetBool("isIdle", true);
+        //            stateEffect = 1f;
+        //            break;
+        //    }
 
-            preveState = state;
-        }
+        //    preveState = state;
+        //}
     }
     public static bool GetKey()
     {
         return isGetKey;
     }
-    public static bool GetGoal()
-    {
-        return isGoal;
-    }
+    //public static bool GetGoal()
+    //{
+    //    return isGoal;
+    //}
     public static int GetNeutralizer()
     {
         return NeutralizerCount;

@@ -23,21 +23,31 @@ public class SceneManage : MonoBehaviour
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
         //隠し条件設定なし時通常ゴール
-        if (PlayerController.GetGoal()  && SecretGoalCount == 0)
+        if (Goal.GetGoal()  && SecretGoalCount == 0)
         {
             SceneManager.LoadScene(SceneName);
         }
 
         //かくｓ条件設定あり時通常ゴール
-        if (PlayerController.GetGoal() && PlayerController.GetNeutralizer() != SecretGoalCount && SecretGoalCount != 0) 
+        if (Goal.GetGoal() && PlayerController.GetNeutralizer() != SecretGoalCount && SecretGoalCount != 0) 
         {
             SceneManager.LoadScene(SceneName);
         }
 
         //隠し条件設定あり時隠しゴール
-        if (PlayerController.GetGoal() && PlayerController.GetNeutralizer() == SecretGoalCount && SecretGoalCount != 0)
+        if (Goal.GetGoal() && PlayerController.GetNeutralizer() == SecretGoalCount && SecretGoalCount != 0)
         {
             SceneManager.LoadScene(SecretName);
+        }
+
+        //アプリケーションの終了
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 }

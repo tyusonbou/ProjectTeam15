@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    static bool isGoal;
     
     // Start is called before the first frame update
     void Start()
     {
-       
+        isGoal = false;
     }
 
     // Update is called once per frame
@@ -22,9 +23,19 @@ public class Goal : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color= new Color32(0, 255, 255, 255);
         }
-        if (PlayerController.GetGoal())
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true))
         {
+            isGoal = true;
             Destroy(gameObject);
         }
+    }
+
+    public static bool GetGoal()
+    {
+        return isGoal;
     }
 }

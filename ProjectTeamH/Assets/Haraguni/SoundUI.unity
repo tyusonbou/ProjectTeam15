@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b8b5cd6ba22054fb6a051c32a395a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm_UI: {fileID: 647545414}
-  se_UI: {fileID: 616639265}
+  volume_UI:
+  - {fileID: 647545414}
+  - {fileID: 616639265}
 --- !u!1 &57056459
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,11 +501,11 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 616639265}
+      - m_Target: {fileID: 0}
         m_MethodName: MoveSlider
         m_Mode: 1
         m_Arguments:
@@ -524,10 +525,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 616639262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42bfd77f1376fc346ac203c2d1bb02fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 89a40cdc9a68a9e4e8fd61426350ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 616639264}
   isSelect: 0
+  handle: {fileID: 1359672471}
 --- !u!1 &647545411
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +614,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -638,7 +641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a40cdc9a68a9e4e8fd61426350ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 647545413}
   isSelect: 0
+  handle: {fileID: 182166670}
 --- !u!1 &730366116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 168}
+  m_AnchoredPosition: {x: 0, y: 127}
   m_SizeDelta: {x: 364.2, y: 125.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735068180

@@ -5,20 +5,32 @@ using UnityEngine;
 public class SelectSlider : MonoBehaviour
 {
     [SerializeField]
-    private bgmUI bgm_UI;
-    [SerializeField]
-    private seUI se_UI;
+    private VolumeUI[] volume_UI=new VolumeUI[2];
+    //[SerializeField]
+    //private seUI se_UI;
+
+    private bool sel;
+
+    void Start()
+    {
+        sel = false;
+        volume_UI[0].Select();
+        volume_UI[1].NotSelect();
+    }
+
     void Update()
     {
-        if (0 > Input.GetAxisRaw("Vertical"))
+        if (0 > Input.GetAxisRaw("Vertical") && !sel)
         {
-            bgm_UI.NotSelect();
-            se_UI.Select();
+            volume_UI[0].NotSelect();
+            volume_UI[1].Select();
+            sel = true;
         }
-        else if (0 < Input.GetAxisRaw("Vertical"))
+        else if (0 < Input.GetAxisRaw("Vertical") && sel)
         {
-            se_UI.NotSelect();
-            bgm_UI.Select();
+            volume_UI[1].NotSelect();
+            volume_UI[0].Select();
+            sel = false;
         }
     }
 }

@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
 
         Hp = 12;
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
-        if (baketu.activeInHierarchy == true) { return; }
+        //if (baketu.activeInHierarchy == true) { return; }
 
         GetInputKey(); //キー入力
         ChangeState(); //状態変化
@@ -184,14 +184,19 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (isUmbrella)
+        if (baketu.activeInHierarchy == true)
         {
-            state = "UMBRELLA";
+            state = "BAKETSU";
         }
-        if (isKnockBack)
-        {
-            state = "KNOCKBACK";
-        }
+
+        //if (isUmbrella)
+        //{
+        //    state = "UMBRELLA";
+        //}
+        //if (isKnockBack)
+        //{
+        //    state = "KNOCKBACK";
+        //}
     }
 
     void Move()
@@ -286,13 +291,15 @@ public class PlayerController : MonoBehaviour {
     {
         if ((Input.GetButtonDown("X")) && (NeutralizerCount>=1))
         {
+            animator.SetTrigger("useNeutralizer");
+
             if(LRState=="RIGHT")
             {
-                Instantiate(Neutralizer, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+                Instantiate(Neutralizer, transform.position + new Vector3(1, 0.5f, 0), Quaternion.identity);
             }
             if (LRState == "LEFT")
             {
-                Instantiate(Neutralizer, transform.position + new Vector3(-1, 0, 0), Quaternion.identity);
+                Instantiate(Neutralizer, transform.position + new Vector3(-1, 0.5f, 0), Quaternion.identity);
             }
             NeutralizerCount -= 1;
         }
@@ -395,42 +402,48 @@ public class PlayerController : MonoBehaviour {
             transform.localRotation = new Quaternion(0, 180, 0, 0);
         }
 
-        //if (preveState != state)
-        //{
-        //    switch (state)
-        //    {
-        //        case "RUN":
-        //            animator.SetBool("isRun", true);
-        //            animator.SetBool("isJump", false);
-        //            animator.SetBool("isAttack", false);
-        //            animator.SetBool("isIdle", false);
-        //            stateEffect = 1f;
-        //            break;
-        //        case "JUMP":
-        //            animator.SetBool("isRun", false);
-        //            animator.SetBool("isJump", true);
-        //            animator.SetBool("isAttack", false);
-        //            animator.SetBool("isIdle", false);
-        //            stateEffect = 1f;
-        //            break;
-        //        case "ATTACK":
-        //            animator.SetBool("isRun", false);
-        //            animator.SetBool("isJump", false);
-        //            animator.SetBool("isAttack", true);
-        //            animator.SetBool("isIdle", false);
-        //            stateEffect = 0.5f;
-        //            break;
-        //        default:
-        //            animator.SetBool("isRun", false);
-        //            animator.SetBool("isJump", false);
-        //            animator.SetBool("isAttack", false);
-        //            animator.SetBool("isIdle", true);
-        //            stateEffect = 1f;
-        //            break;
-        //    }
+        if (preveState != state)
+        {
+            switch (state)
+            {
+                case "RUN":
+                    animator.SetBool("isRun", true);
+                    animator.SetBool("isJump", false);
+                    animator.SetBool("isIdle", false);
+                    animator.SetBool("isBaketsu", false);
+                    stateEffect = 1f;
+                    break;
+                case "JUMP":
+                    animator.SetBool("isRun", false);
+                    animator.SetBool("isJump", true);
+                    animator.SetBool("isIdle", false);
+                    animator.SetBool("isBaketsu", false);
+                    stateEffect = 1f;
+                    break;
+                case "BAKETSU":
+                    animator.SetBool("isRun", false);
+                    animator.SetBool("isJump", false);
+                    animator.SetBool("isIdle", false);
+                    animator.SetBool("isBaketsu", true);
+                    stateEffect = 1f;
+                    break;
+                default:
+                    animator.SetBool("isRun", false);
+                    animator.SetBool("isJump", false);
+                    animator.SetBool("isIdle", true);
+                    animator.SetBool("isBaketsu", false);
+                    stateEffect = 1f;
+                    break;
+            }
 
-        //    preveState = state;
+            preveState = state;
+        }
+
+        //if (isUmbrella == true)
+        //{
+        //    Umbrella.GetComponent<Animator>().SetBool("isOpen", true);
         //}
+        //else { Umbrella.GetComponent<Animator>().SetBool("isOpen", false); }
     }
     public static bool GetKey()
     {

@@ -15,11 +15,6 @@ public class Key : MonoBehaviour
     void Update()
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }//ポーズ時停止
-
-        //if (PlayerController.GetKey())
-        //{
-        //    Destroy(gameObject);//消滅
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

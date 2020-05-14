@@ -21,10 +21,16 @@ public class AcidScript : MonoBehaviour
     [SerializeField]
     AnimationCurve curve;
 
+    [SerializeField]
+    AudioClip meltSE;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         neutral = false;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,6 +75,7 @@ public class AcidScript : MonoBehaviour
         if ((col.gameObject.tag == "Player")&&(!neutral))
         {
             Destroy(col.gameObject);
+            audioSource.PlayOneShot(meltSE);
         }
         if((col.gameObject.tag == "Player") && (neutral))
         {

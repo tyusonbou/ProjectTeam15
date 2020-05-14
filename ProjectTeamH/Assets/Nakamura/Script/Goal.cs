@@ -5,6 +5,9 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     static bool isGoal;
+
+    [SerializeField]
+    private Sprite openSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -19,9 +22,8 @@ public class Goal : MonoBehaviour
 
         if (PlayerController.GetKey())
         {
-            //Color32 color = new Color32(0, 255, 255,0);
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.color= new Color32(0, 255, 255, 255);
+            spriteRenderer.sprite = openSprite;
         }
     }
 

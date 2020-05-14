@@ -355,14 +355,7 @@ public class PlayerController : MonoBehaviour {
             rb2d.AddForce(knockBackDirection* EnemyAttack);
         }
 
-        //if (col.gameObject.tag == "Key")
-        //{
-        //    isGetKey = true;
-        //}
-        //if ((col.gameObject.tag == "Goal") && (isGetKey)) 
-        //{
-        //    isGoal = true;
-        //}
+       
 
     }
     private void OnTriggerStay2D(Collider2D col)
@@ -439,20 +432,13 @@ public class PlayerController : MonoBehaviour {
             preveState = state;
         }
 
-        //if (isUmbrella == true)
-        //{
-        //    Umbrella.GetComponent<Animator>().SetBool("isOpen", true);
-        //}
-        //else { Umbrella.GetComponent<Animator>().SetBool("isOpen", false); }
+       
     }
     public static bool GetKey()
     {
         return isGetKey;
     }
-    //public static bool GetGoal()
-    //{
-    //    return isGoal;
-    //}
+    
     public static int GetNeutralizer()
     {
         return NeutralizerCount;

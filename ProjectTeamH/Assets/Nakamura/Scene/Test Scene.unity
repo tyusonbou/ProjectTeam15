@@ -358,6 +358,10 @@ MonoBehaviour:
   slider: {fileID: 0}
   player: {fileID: 0}
   gage: {fileID: 0}
+  Image: {fileID: 0}
+  spr:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &458819374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,11 +517,6 @@ PrefabInstance:
       propertyPath: bakestu
       value: 
       objectReference: {fileID: 1585056147}
-    - target: {fileID: 601118398518119794, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 46
-      objectReference: {fileID: 0}
     - target: {fileID: 601118399747926883, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -638,11 +637,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3155426622735594222, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 15.099609
-      objectReference: {fileID: 0}
     - target: {fileID: 3155426623986455807, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -652,11 +646,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187146331790470293, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.099976
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}

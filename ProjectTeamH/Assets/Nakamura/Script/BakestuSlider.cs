@@ -9,11 +9,20 @@ public class BakestuSlider : MonoBehaviour
     public Slider slider;
     public Baketsu bakestu;
     public Image gage;
+
+    
+    [SerializeField]
+    private Image Image;
+   
+    [SerializeField]
+    private Sprite[] spr = new Sprite[2];
+
     // Start is called before the first frame update
     void Start()
     {
         slider = GameObject.Find("BaketuSlider").GetComponent<Slider>();
         gage = GameObject.Find("BaketsuFill").GetComponent<Image>();
+        Image = GameObject.Find("BButtonImage").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -35,6 +44,15 @@ public class BakestuSlider : MonoBehaviour
         {
             gage.color = new Color(255, 0, 0);
 
+        }
+
+        if (Input.GetButtonDown("B"))
+        {
+            Image.sprite = spr[1];
+        }
+        if (Input.GetButtonUp("B")) 
+        {
+            Image.sprite = spr[0];
         }
     }
 

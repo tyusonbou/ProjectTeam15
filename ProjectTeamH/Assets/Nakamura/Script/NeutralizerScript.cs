@@ -33,10 +33,10 @@ public class NeutralizerScript : MonoBehaviour
             isGround = true;
         }
 
-        if ((collision.gameObject.tag == "Player"))
-        {
-            Destroy(gameObject);
-        }
+        //if ((collision.gameObject.tag == "Player"))
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     public static bool ReturnGround()

@@ -391,11 +391,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rain
       objectReference: {fileID: 0}
-    - target: {fileID: 166128469231896598, guid: 1c9bc21f5c3433245a4b5072c941c08a,
-        type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 166128469231896599, guid: 1c9bc21f5c3433245a4b5072c941c08a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -450,11 +445,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802402073178491899, guid: 1c9bc21f5c3433245a4b5072c941c08a,
-        type: 3}
-      propertyPath: umbrellaBraekSpeed
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c9bc21f5c3433245a4b5072c941c08a, type: 3}
@@ -984,16 +974,6 @@ PrefabInstance:
     - target: {fileID: 3155426623986455807, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187146331790470293, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22.099976
-      objectReference: {fileID: 0}
-    - target: {fileID: 7187146331790470378, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

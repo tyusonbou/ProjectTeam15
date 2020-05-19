@@ -254,16 +254,16 @@ public class PlayerController : MonoBehaviour {
         //    }
         //}
 
-        //if (!isUmbrella)
-        //{
-        //    Umbrella.SetActive(false);
-        //    umbrellaHP += Time.deltaTime;
-        //    if (umbrellaHP > UmHpMaxLimit)
-        //    {
-        //        umbrellaHP = UmHpMaxLimit;
-        //        isCoolTime = false;
-        //    }
-        //}
+        if (!isUmbrella)
+        {
+            Umbrella.SetActive(false);
+            umbrellaHP += Time.deltaTime;
+            if (umbrellaHP > UmHpMaxLimit)
+            {
+                umbrellaHP = UmHpMaxLimit;
+                isCoolTime = false;
+            }
+        }
     }
 
     void KnockBack()

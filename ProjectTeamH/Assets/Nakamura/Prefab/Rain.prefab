@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 166128469231896599}
   - component: {fileID: 166128469231896598}
+  - component: {fileID: 8802402073178491899}
   - component: {fileID: 166128469231896597}
   - component: {fileID: 1515179218}
   m_Layer: 0
@@ -747,7 +748,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 15
+      value: 30
       mode: 0
       spread: 0
       speed:
@@ -866,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 30
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3683,7 +3684,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4637,6 +4638,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &8802402073178491899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166128469231896596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae0f44d544bc244bb7066b545f1ebee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  umbrellaBraekSpeed: 1
 --- !u!199 &166128469231896597
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4673,8 +4687,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 336900021
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

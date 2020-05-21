@@ -66,7 +66,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 526221547
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1771146359
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -224,7 +224,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -862581527
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -303,7 +303,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1619639347
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -382,7 +382,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1551540967
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300008, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -461,7 +461,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1117125941
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300018, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -599,7 +599,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1117125941
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300020, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -679,7 +679,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -848786923
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300012, guid: 033b9346da2ec084288bbfbf78d320cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -818,12 +818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c856aad05294448b0807c4bedc1f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 300
+  jumpForce: 350
   jumpThereshold: 0.1
   runSpeed: 3
   runThereshold: 10
   EnemyAttack: 0
-  umbrellaHP: 10
   UmHpLimit: 0
   UmHpMaxLimit: 10
   invisibleInterval: 0
@@ -841,9 +840,7 @@ MonoBehaviour:
   isJump: 1
   isFall: 0
   isDash: 0
-  isUmbrella: 0
   isCoolTime: 0
-  isRain: 0
   isKnockBack: 0
 --- !u!114 &301171821
 MonoBehaviour:
@@ -893,7 +890,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0050255954, y: -0.4236945}
+  m_Offset: {x: 0, y: -0.12434018}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -904,7 +901,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.68841094, y: 0.7154815}
+  m_Size: {x: 0.58, y: 1.3141901}
   m_EdgeRadius: 0
 --- !u!61 &3507134327002878611
 BoxCollider2D:
@@ -945,8 +942,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000029802322, y: 0.09481692}
-  m_Size: {x: 0.86184543, y: 1.0716991}
+  m_Offset: {x: 0.000000029802322, y: -0.04773283}
+  m_Size: {x: 0.86184543, y: 1.3567986}
   m_Direction: 0
 --- !u!70 &1663159968
 CapsuleCollider2D:
@@ -1058,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 707631016155632171, guid: 1136815028d2a3a46be1fba0322fccf1,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 707631016155632171, guid: 1136815028d2a3a46be1fba0322fccf1,
         type: 3}

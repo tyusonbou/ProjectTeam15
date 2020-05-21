@@ -3674,15 +3674,15 @@ MonoBehaviour:
   - {fileID: 0}
   SceneName:
   - 
-  - ProtoStage
-  - ProtoStage2
-  - ProtoStage3
-  - ProtoStage4
-  - ProtoStage5
-  - ProtoStage6
-  - ProtoStage7
-  - ProtoStage8
-  - ProtoStage9
+  - Stage1
+  - Stage2
+  - Stage3
+  - Stage4
+  - Stage5
+  - Stage6
+  - Stage7
+  - Stage8
+  - Stage9
   - 
   - 
   - 
@@ -3697,7 +3697,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  - ProtoStageFinal
+  - StageFinal
   scale: {x: 1.25, y: 1.25, z: 1.25}
   PageSpeed: 48
   NextPage: {fileID: 1227605636}

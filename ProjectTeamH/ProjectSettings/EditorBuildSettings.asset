@@ -27,21 +27,21 @@ EditorBuildSettings:
     path: Assets/Nakamura/Scene/ProtoStage4.unity
     guid: a3b81c2a61a72ae4c84aa09f98793dd4
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStage5.unity
+    path: Assets/Nakamura/Scene/Stages/Stage5.unity
     guid: 3892660c89911e844b0b4d2de6c1079e
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStage6.unity
+    path: Assets/Nakamura/Scene/Stages/Stage6.unity
     guid: f009cb4b93069e5499f76bc133482153
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStage7.unity
+    path: Assets/Nakamura/Scene/Stages/Stage7.unity
     guid: fa5d895f5e16ff840894b0405fe2ae84
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStage8.unity
+    path: Assets/Nakamura/Scene/Stages/Stage8.unity
     guid: cdbb9034dd98abe47ad5ce1bcdf50c85
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStage9.unity
+    path: Assets/Nakamura/Scene/Stages/Stage9.unity
     guid: eccdfcd59bce156489305dd50108ad32
   - enabled: 1
-    path: Assets/Nakamura/Scene/ProtoStageFinal.unity
+    path: Assets/Nakamura/Scene/Stages/StageFinal.unity
     guid: 3a16b08def94e5d41b5ab21d17544b60
   m_configObjects: {}

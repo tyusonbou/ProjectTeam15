@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     //public float AttackSpeed;
     public float EnemyAttack;
 
-    public float umbrellaHP = 10;
+    public static float umbrellaHP = 10;
     public float UmHpLimit;
     public float UmHpMaxLimit;
     public float invisibleInterval;
@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour {
     bool isFall;
     [SerializeField]
     bool isDash;
-    [SerializeField]
-    bool isUmbrella;
+   
     [SerializeField]
     public bool isCoolTime;
-    [SerializeField]
-    bool isRain;
+   
     static bool isGetKey;
-    //static bool isGoal;
+    
+    static bool isUmbrella;
+
 
     public bool isKnockBack;
 
@@ -105,12 +105,6 @@ public class PlayerController : MonoBehaviour {
         transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
 
         UseUmbrella();//傘をさす
-
-        //死亡処理
-        if (isRain==true && !isUmbrella)
-        {
-            Destroy(gameObject);
-        }
 
         if (Key == null)
         {
@@ -248,17 +242,17 @@ public class PlayerController : MonoBehaviour {
            
         }
 
-        if ((isUmbrella) && (isRain == true))
-        {
-            umbrellaHP -= Time.deltaTime;
+        //if ((isUmbrella) && (isRain == true))
+        //{
+        //    umbrellaHP -= Time.deltaTime;
 
-            //傘の耐久時間
-            if (umbrellaHP <= UmHpLimit)
-            {
-                isUmbrella = false;
-                isCoolTime = true;
-            }
-        }
+        //    //傘の耐久時間
+        //    if (umbrellaHP <= UmHpLimit)
+        //    {
+        //        isUmbrella = false;
+        //        isCoolTime = true;
+        //    }
+        //}
 
         if (!isUmbrella)
         {
@@ -334,10 +328,7 @@ public class PlayerController : MonoBehaviour {
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
         }
-        if (col.gameObject.tag == "SafeZone")
-        {
-            isRain = false;
-        }
+       
         
 
         if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
@@ -366,22 +357,12 @@ public class PlayerController : MonoBehaviour {
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
         }
-        if (col.gameObject.tag == "SafeZone")
-        {
-            isRain = false;
-        }
+       
 
 
     }
 
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "SafeZone")
-        {
-            OnTriggerStay2D(col);
-            isRain = true;
-        }
-    }
+   
 
     private void ChangeAnimation()
     {
@@ -438,7 +419,10 @@ public class PlayerController : MonoBehaviour {
     {
         return isGetKey;
     }
-    
+    public static bool GetUmbrella()
+    {
+        return isUmbrella;
+    }
     public static int GetNeutralizer()
     {
         return NeutralizerCount;

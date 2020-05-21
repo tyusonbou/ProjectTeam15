@@ -709,6 +709,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neutralizer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9011737067881057889, guid: a86db3102da46564fb5691a5e7d135f4,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 165683215
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011737067881057889, guid: a86db3102da46564fb5691a5e7d135f4,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 9011737067881057890, guid: a86db3102da46564fb5691a5e7d135f4,
         type: 3}
       propertyPath: m_LocalPosition.x

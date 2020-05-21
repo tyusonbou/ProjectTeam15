@@ -50,7 +50,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
+  - name: Rain
     uniqueID: 336900021
     locked: 0
   - name: Blocks
@@ -79,4 +79,7 @@ TagManager:
     locked: 0
   - name: head
     uniqueID: 3432385769
+    locked: 0
+  - name: Object
+    uniqueID: 165683215
     locked: 0

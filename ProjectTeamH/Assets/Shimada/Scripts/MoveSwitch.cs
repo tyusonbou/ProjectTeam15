@@ -14,10 +14,15 @@ public class MoveSwitch : MonoBehaviour
     [SerializeField]
     private int FlagNo;//床とスイッチの紐づけ
     private bool Swich;//オンかオフか
+    [SerializeField]
+    private Sprite on;//オンの画像
+    [SerializeField]
+    private Sprite off;//オフの画像
 
     void Start()
     {
         Swich = false;//最初はオフ 
+        
     }
 
     void Update()
@@ -33,11 +38,15 @@ public class MoveSwitch : MonoBehaviour
             {
                 Swich = true;//スイッチオン
                 FlagManager.Instance.flags[FlagNo] = true;
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = on;
             }
             else if (Swich == true)
             {
                 Swich = false;//スイッチオフ
                 FlagManager.Instance.flags[FlagNo] = false;
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.sprite = off;
             }
         }
     }
@@ -62,6 +71,8 @@ public class MoveSwitch : MonoBehaviour
 
             // -- 床とスイッチの紐づけ --
             moveswich.FlagNo = EditorGUILayout.IntField("移動床との紐づけ", moveswich.FlagNo);
+
+
 
             //値の変更を保存
             EditorUtility.SetDirty(moveswich);

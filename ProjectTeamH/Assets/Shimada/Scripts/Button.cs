@@ -46,6 +46,10 @@ public class Button : MonoBehaviour
     Application.Quit();
 #endif
                     break;
+
+            case 4:
+                FadeManager.Instance.LoadScene("Stage1", 2.0f);
+                break;
         }
     }
 

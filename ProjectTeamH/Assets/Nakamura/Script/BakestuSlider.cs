@@ -35,7 +35,7 @@ public class BakestuSlider : MonoBehaviour
 
         if (bakestu.coolTime != true)
         {
-            SliderControll();
+            //SliderControll();
             gage.color = new Color(255, 255, 255);
         }
 

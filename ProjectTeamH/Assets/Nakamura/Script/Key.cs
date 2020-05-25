@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    
+    Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
-
+        if (rb2d == null)
+        {
+            rb2d = GetComponent<Rigidbody2D>();
+        }
     }
 
     // Update is called once per frame
@@ -21,7 +24,12 @@ public class Key : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            PlayerController.isGetKey = true;
+            gameObject.transform.parent = collision.gameObject.transform;
+            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            gameObject.transform.localPosition = new Vector3(0, 1f);
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
+            Destroy(rb2d);
         }
     }
 }

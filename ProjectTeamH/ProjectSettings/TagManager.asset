@@ -56,6 +56,9 @@ TagManager:
   - name: Blocks
     uniqueID: 2520000285
     locked: 0
+  - name: Door
+    uniqueID: 2921449645
+    locked: 0
   - name: umbrella
     uniqueID: 3446180373
     locked: 0

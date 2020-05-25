@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     //public float AttackSpeed;
     public float EnemyAttack;
 
-    public static float umbrellaHP = 10;
+    public static float umbrellaHP;
     public float UmHpLimit;
     public float UmHpMaxLimit;
     public float invisibleInterval;
@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     bool isDash;
    
-    [SerializeField]
-    public bool isCoolTime;
    
-    static bool isGetKey;
+    public static bool isCoolTime;
+   
+    public static bool isGetKey;
     
     static bool isUmbrella;
 
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
 
-        Hp = 12;
+        umbrellaHP = 10;
         NeutralizerCount = 0;
 
         Umbrella.SetActive(false);
@@ -82,8 +82,13 @@ public class PlayerController : MonoBehaviour {
         //isGoal = false;
 
         Key = GameObject.Find("Key");
-        
-	}
+
+        if (Key == null)
+        {
+            isGetKey = true;
+        }
+        else isGetKey = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -106,11 +111,7 @@ public class PlayerController : MonoBehaviour {
 
         UseUmbrella();//傘をさす
 
-        if (Key == null)
-        {
-            isGetKey = true;
-        }
-        else isGetKey = false;
+        
     }
 
     private void FixedUpdate()
@@ -242,17 +243,13 @@ public class PlayerController : MonoBehaviour {
            
         }
 
-        //if ((isUmbrella) && (isRain == true))
-        //{
-        //    umbrellaHP -= Time.deltaTime;
-
-        //    //傘の耐久時間
-        //    if (umbrellaHP <= UmHpLimit)
-        //    {
-        //        isUmbrella = false;
-        //        isCoolTime = true;
-        //    }
-        //}
+        //傘の耐久時間
+        if (umbrellaHP <= UmHpLimit)
+        {
+            isUmbrella = false;
+            isCoolTime = true;
+        }
+        
 
         if (!isUmbrella)
         {
@@ -430,5 +427,9 @@ public class PlayerController : MonoBehaviour {
     public static string GetLRState()
     {
         return LRState;
+    }
+    public static bool GetCoolTime()
+    {
+        return isCoolTime;
     }
 }

@@ -6,13 +6,13 @@ public class Goal : MonoBehaviour
 {
     static bool isGoal;
 
-    [SerializeField]
-    private Sprite openSprite;
+    Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
         isGoal = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,8 +22,7 @@ public class Goal : MonoBehaviour
 
         if (PlayerController.GetKey())
         {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = openSprite;
+            animator.SetBool("Open", true);
         }
     }
 
@@ -32,7 +31,7 @@ public class Goal : MonoBehaviour
         if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true))
         {
             isGoal = true;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

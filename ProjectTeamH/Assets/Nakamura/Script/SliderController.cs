@@ -9,6 +9,7 @@ public class SliderController : MonoBehaviour
     
     public Image gage;
 
+    PlayerController player;
 
     [SerializeField]
     private Image Image;
@@ -22,6 +23,8 @@ public class SliderController : MonoBehaviour
         slider = GameObject.Find("Slider").GetComponent<Slider>();
         gage = GameObject.Find("Fill").GetComponent<Image>();
         Image = GameObject.Find("RButtonImage").GetComponent<Image>();
+
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -29,37 +32,36 @@ public class SliderController : MonoBehaviour
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-
         slider.value = PlayerController.umbrellaHP;
 
-        //if (player.isCoolTime != true)
-        //{
-        //    SliderControll();
-        //    gage.color = new Color(255, 255, 255);
-        //}
+        if (!PlayerController.GetCoolTime())
+        {
+            SliderControll();
+            gage.color = new Color(255, 255, 255);
+        }
 
-        
-        //if (player.isCoolTime == true)
-        //{
-        //    gage.color = new Color(255, 0, 0);
-            
-        //}
 
-        //if (Input.GetButtonDown("RB"))
-        //{
-        //    Image.sprite = spr[1];
-        //}
-        //if (Input.GetButtonUp("RB"))
-        //{
-        //    Image.sprite = spr[0];
-        //}
+        if (PlayerController.GetCoolTime())
+        {
+            gage.color = new Color(255, 0, 0);
+
+        }
+
+        if (Input.GetButtonDown("RB"))
+        {
+            Image.sprite = spr[1];
+        }
+        if (Input.GetButtonUp("RB"))
+        {
+            Image.sprite = spr[0];
+        }
     }
 
     void SliderControll()
     {
         if (slider.value >= 7)
         {
-            slider.image.color = new Color(0, 255, 0);
+            slider.image.color = new Color(255, 255, 255);
         }
         else if (slider.value >= 3 && slider.value < 7)
         {

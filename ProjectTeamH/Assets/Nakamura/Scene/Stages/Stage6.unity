@@ -236,6 +236,7 @@ MonoBehaviour:
   SceneName: Stage7
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!114 &87914379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,12 +353,12 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.028
+      value: 12.95
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.714305
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -407,7 +408,7 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.0938163
+      value: 0.4125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e69b0d431a12a47b9b46e83ea5ea38, type: 3}
@@ -5606,7 +5607,7 @@ PrefabInstance:
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.996
+      value: 5.007
       objectReference: {fileID: 0}
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
@@ -5661,7 +5662,7 @@ PrefabInstance:
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15.989845
+      value: 20.019285
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9f4f55bbe939ab419d95bfb7f930d6f, type: 3}

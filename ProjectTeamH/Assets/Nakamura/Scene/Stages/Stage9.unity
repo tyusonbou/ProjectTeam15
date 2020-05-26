@@ -4915,7 +4915,7 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.283
+      value: 6.04
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -4970,7 +4970,7 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.58
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -5367,6 +5367,7 @@ MonoBehaviour:
   SceneName: Stage10
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!1001 &2013136012
 PrefabInstance:
   m_ObjectHideFlags: 0

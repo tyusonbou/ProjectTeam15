@@ -453,12 +453,12 @@ PrefabInstance:
     - target: {fileID: 5410223670822367127, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: FloatingSpeed
-      value: 600
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.98
+      value: 7.31
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -513,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.024
+      value: 0.13952851
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -2033,12 +2033,12 @@ PrefabInstance:
     - target: {fileID: 5410223670822367127, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: FloatingSpeed
-      value: 800
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.97073925
+      value: 0.97074
       objectReference: {fileID: 0}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -2093,7 +2093,12 @@ PrefabInstance:
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.222
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e69b0d431a12a47b9b46e83ea5ea38, type: 3}
@@ -2505,6 +2510,7 @@ MonoBehaviour:
   SceneName: StageSelect
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!114 &1877953610
 MonoBehaviour:
   m_ObjectHideFlags: 0

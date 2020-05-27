@@ -6,10 +6,17 @@ public class BeltConvayorSwich : MonoBehaviour
 {
     [SerializeField]
     GameObject[] Convayor;
+
+    //スプライト変更用
+    [SerializeField]
+    private new SpriteRenderer renderer;
+    //変更するスプライト
+    [SerializeField]
+    private Sprite[] spr = new Sprite[2];
     // Start is called before the first frame update
     void Start()
     {
-        
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,6 +31,15 @@ public class BeltConvayorSwich : MonoBehaviour
         {
             Convayor[0].GetComponent<BeltConveyor>().LRSwich = !Convayor[0].GetComponent<BeltConveyor>().LRSwich;
             Convayor[1].GetComponent<BeltConveyor>().LRSwich = !Convayor[1].GetComponent<BeltConveyor>().LRSwich;
+
+            if (renderer.sprite == spr[1])
+            {
+                renderer.sprite = spr[0];
+            }
+            if (renderer.sprite == spr[0])
+            {
+                renderer.sprite = spr[1];
+            }
         }
     }
 }

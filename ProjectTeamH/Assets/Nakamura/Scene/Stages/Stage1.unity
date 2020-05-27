@@ -638,6 +638,7 @@ MonoBehaviour:
   SceneName: Stage2
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!114 &1027058281
 MonoBehaviour:
   m_ObjectHideFlags: 0

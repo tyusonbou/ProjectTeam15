@@ -11,34 +11,56 @@ public class SceneManage : MonoBehaviour
     private string SecretName;
     [SerializeField]
     int SecretGoalCount;
+
+    [SerializeField]
+    GameObject ClearUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ClearUI = GameObject.Find("ClearUI");
+        ClearUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        //if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-        //隠し条件設定なし時通常ゴール
-        if (Goal.GetGoal()  && SecretGoalCount == 0)
+        if (ClearUI.activeSelf)
         {
-            SceneManager.LoadScene(SceneName);
+
         }
 
-        //かくｓ条件設定あり時通常ゴール
-        if (Goal.GetGoal() && PlayerController.GetNeutralizer() != SecretGoalCount && SecretGoalCount != 0) 
+        if (Goal.GetGoal())
         {
-            SceneManager.LoadScene(SceneName);
+            ClearUI.SetActive(true);
+
+            Time.timeScale = 0f;
+
+            if (Input.GetButtonDown("A"))
+            {
+                //隠し条件設定なし時通常ゴール
+                if (SecretGoalCount == 0)
+                {
+                    SceneManager.LoadScene(SceneName);
+                }
+
+                //かくｓ条件設定あり時通常ゴール
+                if (PlayerController.GetNeutralizer() != SecretGoalCount && SecretGoalCount != 0)
+                {
+                    SceneManager.LoadScene(SceneName);
+                }
+
+                //隠し条件設定あり時隠しゴール
+                if (PlayerController.GetNeutralizer() == SecretGoalCount && SecretGoalCount != 0)
+                {
+                    SceneManager.LoadScene(SecretName);
+                }
+            }     
         }
 
-        //隠し条件設定あり時隠しゴール
-        if (Goal.GetGoal() && PlayerController.GetNeutralizer() == SecretGoalCount && SecretGoalCount != 0)
-        {
-            SceneManager.LoadScene(SecretName);
-        }
+
+        
 
         //アプリケーションの終了
         if (Input.GetKeyDown(KeyCode.Escape))

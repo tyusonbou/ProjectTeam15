@@ -9,11 +9,13 @@ public class BeltConveyor : MonoBehaviour
     [SerializeField]
     public bool LRSwich;//左右切り替え
 
-    public GameObject allow1;
-    public GameObject allow2;
+    Animator animator;
 
-    private  SpriteRenderer renderer1;
-    private  SpriteRenderer renderer2;
+    //public GameObject allow1;
+    //public GameObject allow2;
+
+    //private  SpriteRenderer renderer1;
+    //private  SpriteRenderer renderer2;
 
     float LR;
 
@@ -22,25 +24,31 @@ public class BeltConveyor : MonoBehaviour
     {
         LR = 1;//初期状態は右
 
-        renderer1 = allow1.GetComponent<SpriteRenderer>();
-        renderer2 = allow2.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
+        //renderer1 = allow1.GetComponent<SpriteRenderer>();
+        //renderer2 = allow2.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", speed);
+
         if(LRSwich)
         {
             LR = -1;//左に変更
 
-            renderer1.flipX = true;
-            renderer2.flipX = true;
+            gameObject.transform.localRotation = new Quaternion(0, 180, 0, 0);
+            //renderer1.flipX = true;
+            //renderer2.flipX = true;
         }
         else
         {
             LR = 1;//右に変更
-            renderer1.flipX = false;
-            renderer2.flipX = false;
+            gameObject.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            //renderer1.flipX = false;
+            //renderer2.flipX = false;
         }
     }
 

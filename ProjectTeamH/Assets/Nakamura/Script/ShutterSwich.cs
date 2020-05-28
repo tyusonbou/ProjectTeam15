@@ -6,10 +6,17 @@ public class ShutterSwich : MonoBehaviour
 {
     [SerializeField]
     GameObject Shutter;
+
+    //スプライト変更用
+    [SerializeField]
+    private new SpriteRenderer renderer;
+    //変更するスプライト
+    [SerializeField]
+    private Sprite[] spr = new Sprite[2];
     // Start is called before the first frame update
     void Start()
     {
-        
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,6 +30,7 @@ public class ShutterSwich : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Shutter.GetComponent<ShutterScript>().OpenFrag = true;
+            renderer.sprite = spr[1];
         }
     }
 }

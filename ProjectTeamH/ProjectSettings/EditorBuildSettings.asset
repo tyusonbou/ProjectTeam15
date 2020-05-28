@@ -48,18 +48,30 @@ EditorBuildSettings:
     path: Assets/Nakamura/Scene/Stages/Stage11.unity
     guid: 8865376f9cc6ef2489dab293f0a358ed
   - enabled: 1
+    path: Assets/Nakamura/Scene/Stages/Stage12.unity
+    guid: 3c8ba8ea2899a9d40af70c2566a5f040
+  - enabled: 1
+    path: Assets/Nakamura/Scene/Stages/Stage13.unity
+    guid: 23582fbbecf03e5448e5829c8d424feb
+  - enabled: 1
+    path: Assets/Nakamura/Scene/Stages/Stage14.unity
+    guid: 55164af2788a025459047077074c3149
+  - enabled: 1
+    path: Assets/Nakamura/Scene/Stages/Stage15.unity
+    guid: e9647bf43ee6b694db2b78b9ed6ac4c0
+  - enabled: 1
     path: Assets/Nakamura/Scene/Stages/StageFinal.unity
     guid: 3a16b08def94e5d41b5ab21d17544b60
   - enabled: 1
-    path: Assets/Nakamura/Scene/Stages/Stage1.unity
-    guid: 47ea7258170c21046b236774b313b9ab
+    path: Assets/Haraguni/Scenes/Proto.unity
+    guid: 665ff26eb42a8a84ca05e53a930b15ca
   - enabled: 1
-    path: Assets/Nakamura/Scene/Stages/Stage2.unity
-    guid: 2ec8e95a3331ed24eaf219fc47839409
+    path: Assets/Haraguni/Scenes/Proto2.unity
+    guid: 66b8f29f9b666264892e6c1cbef9677b
   - enabled: 1
-    path: Assets/Nakamura/Scene/Stages/Stage3.unity
-    guid: 199c3a0adff39e1489bc1292bb9a4816
+    path: Assets/Shimada/Scene/stage_shimada1.unity
+    guid: 992a5070853a9054192be2813d554f61
   - enabled: 1
-    path: Assets/Nakamura/Scene/Stages/Stage4.unity
-    guid: 9dea64c4350582f43adde5cd748e8603
+    path: Assets/Shimada/Scene/stage_shimada2.unity
+    guid: 66d27325be2eb2249b8ee43d0f68f1e7
   m_configObjects: {}

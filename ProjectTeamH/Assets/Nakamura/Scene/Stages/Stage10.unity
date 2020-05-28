@@ -4180,6 +4180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2566429688970527457, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2566429688970527485, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4621,6 +4626,7 @@ MonoBehaviour:
   SceneName: Stage11
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!114 &1588565231
 MonoBehaviour:
   m_ObjectHideFlags: 0

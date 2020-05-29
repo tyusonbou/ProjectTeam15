@@ -14,8 +14,6 @@ public class VolumeUI : MonoBehaviour
     private Image handle;
 
     [SerializeField]
-    private AudioSource audio;
-    [SerializeField]
     private AudioMixer mixer;
 
     //ＢＧＭかＳＥか
@@ -26,10 +24,14 @@ public class VolumeUI : MonoBehaviour
     [SerializeField]
     private string soundStr;
     private float prefsVolume;
+
+    //斜め入力をすると別のスライダーも動く為、それを防ぐ用
+    public bool isMove;
     void Start()
     {
         soundVolume = PlayerPrefs.GetFloat(soundStr,0);
         slider.value = soundVolume;
+        isMove = false;
         handle.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         if (isBGM)
         {
@@ -58,14 +60,20 @@ public class VolumeUI : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0)
         {
             soundVolume += 1;
+            isMove = true;
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
             soundVolume -= 1;
+            isMove = true;
         }
+        else { isMove = false; }
+
+        //スライダーの値を音量にして、音量を保存
         slider.value = soundVolume;
         PlayerPrefs.SetFloat(soundStr, soundVolume);
         PlayerPrefs.Save();
+
         if (isBGM)
         {
             mixer.SetFloat("BGM", slider.value);
@@ -74,14 +82,6 @@ public class VolumeUI : MonoBehaviour
         {
             mixer.SetFloat("SE", slider.value);
         }
-
-        //if (isBGM) mixer.SetFloat("bgm", Mathf.Clamp(volumeDB, -80.0f, 0.0f));
-        //else mixer.SetFloat("se", Mathf.Clamp(volumeDB, -80.0f, 0.0f));
-
-        //if (isBgm) mixer.SetFloat("bgm", mixVor);
-        //else mixer.SetFloat("se", mixVor);
-        //float ConvertVolume2dB(float volume) => 20f * Mathf.Log10(Mathf.Clamp(volume, 0f, 1f));
-        //audio.volume = slider.value / 100;
     }
 
     //選択中かどうか（選択中は調整できる）
@@ -96,6 +96,10 @@ public class VolumeUI : MonoBehaviour
     public bool NotSelect()
     {
         return isSelect = false;
+    }
+    public bool IsMove()
+    {
+        return isMove;
     }
 
     //ボリュームを渡す

@@ -4147,6 +4147,7 @@ MonoBehaviour:
   SceneName: stage_shimada
   SecretName: 
   SecretGoalCount: 0
+  ClearUI: {fileID: 0}
 --- !u!1 &1551580542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5410223670822367126, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
@@ -4163,7 +4164,7 @@ Animator:
   m_GameObject: {fileID: 1551580542}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 05156d18989c3fa48b1231d45eae80f1, type: 2}
+  m_Controller: {fileID: 9100000, guid: bad51305a5d6f7c41afb78e54e13e9fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4535,7 +4536,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a03d771cc8ba9434080112e9c93ddd25,
+      objectReference: {fileID: 21300000, guid: b6ebd98702535024d88b8a5e4be0f4b1,
         type: 3}
     - target: {fileID: 5410223670822367129, guid: b9e69b0d431a12a47b9b46e83ea5ea38,
         type: 3}
@@ -4644,7 +4645,7 @@ PrefabInstance:
     - target: {fileID: 411274408241727270, guid: 8853dfadcc2ce714282b1c2b90d66360,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 411274408241727270, guid: 8853dfadcc2ce714282b1c2b90d66360,
         type: 3}

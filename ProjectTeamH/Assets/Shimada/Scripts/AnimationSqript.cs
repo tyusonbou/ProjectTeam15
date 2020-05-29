@@ -18,10 +18,7 @@ public class AnimationSqript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Submit"))
-        {
-            StartCoroutine("Animation");
-        }
+        
     }
     public void Delete()
     {
@@ -45,5 +42,13 @@ public class AnimationSqript : MonoBehaviour
 
 
         yield return null;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Acid")
+        {
+            StartCoroutine("Animation");
+        }
     }
 }

@@ -40,7 +40,9 @@ public class Baketsu : MonoBehaviour
 
     //バケツ効果音
     [SerializeField]
-    private AudioSource acidInAudio, acidOutAudio,baketsuInAudio;
+    private AudioClip acidInAudio, acidOutAudio,baketsuInAudio;
+    [SerializeField]
+    private AudioSource audioSource;
     void Start()
     {
         isMax = false;
@@ -93,12 +95,12 @@ public class Baketsu : MonoBehaviour
     //酸を零す処理
     void Spill()
     {
-        acidOutAudio.Play();
         useTime += Time.deltaTime;
         pos.y += Time.deltaTime * 0.8f;
         transform.position = pos;
         if (useTime >= useEndTime)
         {
+            audioSource.PlayOneShot(acidOutAudio);
             GetComponent<BoxCollider2D>().enabled = false;
             useTime = 0.0f;
             //汲む前の見た目に戻す
@@ -108,7 +110,7 @@ public class Baketsu : MonoBehaviour
             //酸をバケツの位置に生成する
             GameObject A = Instantiate(acid) as GameObject;
             A.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            baketsuInAudio.Play();
+            audioSource.PlayOneShot(baketsuInAudio);
             //汲んでない状態にしてオブジェクトを隠す
             isMax = false;
             this.gameObject.SetActive(false);
@@ -122,20 +124,20 @@ public class Baketsu : MonoBehaviour
         if (col.gameObject.tag == "Acid")
         {
             if (isMax) return;
-            acidInAudio.Play();
+            audioSource.PlayOneShot(acidInAudio);
             isMax = true;
                 //Destroy(col.gameObject);
                 renderer.sprite = spr[1];
                 //pos.y = 0.0f;中村望修正
                 transform.position = pos;
-            baketsuInAudio.Play();
-                this.gameObject.SetActive(false);
+            audioSource.PlayOneShot(baketsuInAudio);
+            this.gameObject.SetActive(false);
         }
 
         //酸以外のオブジェクトに触れた場合、そのまま戻す
         else
         {
-            baketsuInAudio.Play();
+            audioSource.PlayOneShot(baketsuInAudio);
             //pos.y = 0.0f;中村望修正
             GetComponent<BoxCollider2D>().enabled = false;
                 transform.position = pos;

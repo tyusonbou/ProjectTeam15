@@ -54,6 +54,10 @@ public class Button : MonoBehaviour
             case 4:
                 FadeManager.Instance.LoadScene("Stage1", 2.0f);
                 break;
+
+            case 5:
+                FadeManager.Instance.LoadScene("SoundUI",2.0f);
+                break;
         }
     }
 

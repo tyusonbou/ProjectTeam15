@@ -13,7 +13,14 @@ public class BaketsuUse : MonoBehaviour
 
     //バケツ出し
     [SerializeField]
-    private AudioSource baketsuAudio;
+    private AudioClip baketsuClip;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = baketsuClip;
+    }
 
     void Update()
     {
@@ -37,7 +44,7 @@ public class BaketsuUse : MonoBehaviour
         {
             //バケツを表示する
             baketsu.SetActive(true);
-            baketsuAudio.Play();
+            audioSource.Play();
         }
         if (bake.IsMax())
         {

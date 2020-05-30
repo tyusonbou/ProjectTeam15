@@ -13,10 +13,15 @@ public class ShutterSwich : MonoBehaviour
     //変更するスプライト
     [SerializeField]
     private Sprite[] spr = new Sprite[2];
+
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip ButtonSE;
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class ShutterSwich : MonoBehaviour
         {
             Shutter.GetComponent<ShutterScript>().OpenFrag = true;
             renderer.sprite = spr[1];
+            audioSource.PlayOneShot(ButtonSE);
         }
     }
 }

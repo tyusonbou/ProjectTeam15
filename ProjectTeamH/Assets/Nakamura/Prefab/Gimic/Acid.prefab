@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 165683215
-  m_SortingLayer: 11
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 87751f65f23848b4f9c88cce6be49f59, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 0.78431374}
@@ -150,7 +150,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  meltSE: {fileID: 8300000, guid: 19aa50f23aae9f94d9513090ea090f4e, type: 3}
+  meltSE: {fileID: 8300000, guid: f35e84bda8c8f9243a81eeb104d2095b, type: 3}
+  neutralSE: {fileID: 8300000, guid: e2dcb69083b2f83439fc581765749341, type: 3}
 --- !u!82 &698665019
 AudioSource:
   m_ObjectHideFlags: 0

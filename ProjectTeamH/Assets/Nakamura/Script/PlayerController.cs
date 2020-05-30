@@ -38,16 +38,30 @@ public class PlayerController : MonoBehaviour {
     bool isFall;
     [SerializeField]
     bool isDash;
-   
-   
+
+    [SerializeField]
+    AudioClip runSE;
+    [SerializeField]
+    AudioClip jumpSE;
+    [SerializeField]
+    AudioClip landingSE;
+    [SerializeField]
+    AudioClip openUmSE;
+    [SerializeField]
+    AudioClip closeUmSE;
+    [SerializeField]
+    AudioClip useNeuSE;
+    [SerializeField]
+    AudioClip getNeuSE;
+
     public static bool isCoolTime;
-   
+    public static bool isDead;
     public static bool isGetKey;
     
     static bool isUmbrella;
 
 
-    public bool isKnockBack;
+    //public bool isKnockBack;
 
     int LR = 0;
     
@@ -64,6 +78,8 @@ public class PlayerController : MonoBehaviour {
 
     private new SpriteRenderer renderer;
 
+    private AudioSource audioSource;
+
     private GameObject Key;
 
 	// Use this for initialization
@@ -71,6 +87,7 @@ public class PlayerController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         umbrellaHP = 10;
         NeutralizerCount = 0;
@@ -79,6 +96,7 @@ public class PlayerController : MonoBehaviour {
         LRState = "RIGHT";
 
         isGetKey = false;
+        isDead = false;
         //isGoal = false;
 
         Key = GameObject.Find("Key");
@@ -121,8 +139,10 @@ public class PlayerController : MonoBehaviour {
 
     void GetInputKey()
     {
+        if (isDead) { return; }
+
         LR = 0;
-        if ((!isDash) && (!isKnockBack))
+        if (!isDash)
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
@@ -141,6 +161,8 @@ public class PlayerController : MonoBehaviour {
 
     void ChangeState()
     {
+        if (isDead) { return; }
+
         //落下、上昇してなければ接地
         if (Mathf.Abs(rb2d.velocity.y) > jumpThereshold)
         {
@@ -159,10 +181,12 @@ public class PlayerController : MonoBehaviour {
             if (LR != 0)
             {
                 state = "RUN";
+                //audioSource.Play();
             }
             else
             {
                 state = "IDLE";
+                //audioSource.Stop();
             }
         }
         else
@@ -196,6 +220,8 @@ public class PlayerController : MonoBehaviour {
 
     void Move()
     {
+        if (isDead) { return; }
+
         if (isGround)
         {
             //ジャンプ
@@ -204,6 +230,7 @@ public class PlayerController : MonoBehaviour {
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(Vector2.up * jumpForce);
                 isGround = false;
+                audioSource.PlayOneShot(jumpSE);
             }
             
         }
@@ -231,16 +258,26 @@ public class PlayerController : MonoBehaviour {
     //傘をさす
     void UseUmbrella()
     {
+        if (Input.GetButtonDown("RB") && !isCoolTime)
+        {
+            audioSource.PlayOneShot(openUmSE);
+        }
+        if (Input.GetButtonUp("RB"))
+        {
+            audioSource.PlayOneShot(closeUmSE);
+        }
+
         if (Input.GetButton("RB")  && !isCoolTime) 
         {
             Umbrella.SetActive(true);
             isUmbrella = true;
+            
         }
         else if (!Input.GetButton("RB"))
         {
             Umbrella.SetActive(false);
             isUmbrella = false;
-           
+            
         }
 
         //傘の耐久時間
@@ -263,26 +300,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void KnockBack()
-    {
-        if (isKnockBack)
-        {
-            invisibleTimer += Time.deltaTime;
-            if (invisibleTimer > invisibleInterval)
-            {
-                invisibleTimer = 0;
-                rb2d.AddForce(Vector2.zero);
-                isKnockBack = false;
-            }
-        }
-    }
+    //void KnockBack()
+    //{
+    //    if (isKnockBack)
+    //    {
+    //        invisibleTimer += Time.deltaTime;
+    //        if (invisibleTimer > invisibleInterval)
+    //        {
+    //            invisibleTimer = 0;
+    //            rb2d.AddForce(Vector2.zero);
+    //            isKnockBack = false;
+    //        }
+    //    }
+    //}
 
     //中和剤使用
     void UseNeutralizer()
     {
+        if (isDead) { return; }
+
         if ((Input.GetButtonDown("X")) && (NeutralizerCount>=1))
         {
             animator.SetTrigger("useNeutralizer");
+            audioSource.PlayOneShot(useNeuSE);
 
             if(LRState=="RIGHT")
             {
@@ -314,6 +354,7 @@ public class PlayerController : MonoBehaviour {
         if ((col.gameObject.tag == "Neutralizer"))
         {
             NeutralizerCount += 1;
+            audioSource.PlayOneShot(getNeuSE);
         }
     }
 
@@ -324,24 +365,26 @@ public class PlayerController : MonoBehaviour {
             if (!isGround) { isGround = true; }
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
+
+            audioSource.PlayOneShot(landingSE);
         }
        
         
 
-        if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
-        {
-            isKnockBack = true;
-            Hp -= 1;
+        //if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
+        //{
+        //    isKnockBack = true;
+        //    Hp -= 1;
 
-            Vector3 knockBackDirection = (col.gameObject.transform.position - transform.position).normalized;
+        //    Vector3 knockBackDirection = (col.gameObject.transform.position - transform.position).normalized;
 
-            knockBackDirection.x *= -1;
-            knockBackDirection.y = 1;
-            knockBackDirection.z += -1;
+        //    knockBackDirection.x *= -1;
+        //    knockBackDirection.y = 1;
+        //    knockBackDirection.z += -1;
 
-            rb2d.AddForce(Vector2.zero);
-            rb2d.AddForce(knockBackDirection* EnemyAttack);
-        }
+        //    rb2d.AddForce(Vector2.zero);
+        //    rb2d.AddForce(knockBackDirection* EnemyAttack);
+        //}
 
        
 
@@ -354,9 +397,6 @@ public class PlayerController : MonoBehaviour {
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
         }
-       
-
-
     }
 
    
@@ -410,7 +450,11 @@ public class PlayerController : MonoBehaviour {
             preveState = state;
         }
 
-       
+        if (isDead)
+        {
+            animator.SetTrigger("Dead");
+        }
+
     }
     public static bool GetKey()
     {
@@ -431,5 +475,9 @@ public class PlayerController : MonoBehaviour {
     public static bool GetCoolTime()
     {
         return isCoolTime;
+    }
+    public static bool GetDead()
+    {
+        return isDead;
     }
 }

@@ -23,6 +23,9 @@ public class AcidScript : MonoBehaviour
 
     [SerializeField]
     AudioClip meltSE;
+    [SerializeField]
+    AudioClip neutralSE;
+
 
     AudioSource audioSource;
 
@@ -45,6 +48,7 @@ public class AcidScript : MonoBehaviour
             if (!neutral)
             {
                 Destroy(GameObject.Find("Player"));
+                audioSource.PlayOneShot(meltSE);
             }
         }
     }
@@ -93,12 +97,15 @@ public class AcidScript : MonoBehaviour
                 neutral = true;
                 acidTimer = 0;
                 colorTimer = 0;
+
+                audioSource.PlayOneShot(neutralSE);
             }
         }
 
         if (col.gameObject.tag == "Key")
         {
             Destroy(col.gameObject);
+            audioSource.PlayOneShot(meltSE);
         }
     }
 

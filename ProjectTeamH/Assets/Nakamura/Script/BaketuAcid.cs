@@ -14,13 +14,18 @@ public class BaketuAcid : MonoBehaviour
     [SerializeField]
     float LRForce;
 
+    [SerializeField]
+    AudioClip meltSE;
+
     Rigidbody2D rb2d;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         CountTime = 0;
 
         rb2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,8 +62,8 @@ public class BaketuAcid : MonoBehaviour
         if (col.gameObject.tag == "Object")
         {
             Destroy(gameObject);
-
-            Destroy(col.gameObject);
+            audioSource.PlayOneShot(meltSE);
+            //Destroy(col.gameObject);
         }
 
         if (col.gameObject.tag == "Ground")

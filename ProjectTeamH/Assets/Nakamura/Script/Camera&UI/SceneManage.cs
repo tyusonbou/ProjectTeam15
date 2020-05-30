@@ -14,11 +14,19 @@ public class SceneManage : MonoBehaviour
 
     [SerializeField]
     GameObject ClearUI;
+
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip ClearSE;
+
     // Start is called before the first frame update
     void Start()
     {
         ClearUI = GameObject.Find("ClearUI");
         ClearUI.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,11 +42,13 @@ public class SceneManage : MonoBehaviour
         if (Goal.GetGoal())
         {
             ClearUI.SetActive(true);
+           
 
             Time.timeScale = 0f;
 
             if (Input.GetButtonDown("A"))
             {
+                audioSource.PlayOneShot(ClearSE);
                 //隠し条件設定なし時通常ゴール
                 if (SecretGoalCount == 0)
                 {

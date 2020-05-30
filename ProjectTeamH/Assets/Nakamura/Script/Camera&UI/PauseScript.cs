@@ -25,6 +25,15 @@ public class PauseScript : MonoBehaviour
     float menuSelect;
     private GameObject Player;
 
+    [SerializeField]
+    AudioClip selectSE;
+    [SerializeField]
+    AudioClip dicideSE;
+    [SerializeField]
+    AudioClip pauseSE;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +44,8 @@ public class PauseScript : MonoBehaviour
         RestartText = pauseUI.transform.Find("RestartText").GetComponent<Text>();
         StageText = pauseUI.transform.Find("StageSelect").GetComponent<Text>();
         TitleBackText = pauseUI.transform.Find("TitleText").GetComponent<Text>();
+
+        audioSource = GetComponent<AudioSource>();
 
         state = "CLOSE";
         menuSelect = 0;
@@ -48,6 +59,7 @@ public class PauseScript : MonoBehaviour
             pauseUI.SetActive(!pauseUI.activeSelf);
 
             state = "CLOSE";
+            audioSource.PlayOneShot(pauseSE);
         }
 
         //　ポーズUIが表示されてる時は停止
@@ -96,16 +108,19 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
                 {
                     //　ポーズUIのアクティブ、非アクティブを切り替え
                     pauseUI.SetActive(!pauseUI.activeSelf);
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -119,10 +134,12 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "STAGE SELECT";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
@@ -131,6 +148,7 @@ public class PauseScript : MonoBehaviour
                     Scene loadScene = SceneManager.GetActiveScene();
                     // Sceneの読み直し
                     SceneManager.LoadScene(loadScene.name);
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -143,15 +161,18 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "TITLE BACK";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
                 {
                     SceneManager.LoadScene("StageSelect");
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -164,15 +185,18 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0)) 
                 {
                     state = "STAGE SELECT";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
                 {
                     SceneManager.LoadScene("Title");
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -198,10 +222,12 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "STAGE SELECT";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
@@ -210,6 +236,7 @@ public class PauseScript : MonoBehaviour
                     Scene loadScene = SceneManager.GetActiveScene();
                     // Sceneの読み直し
                     SceneManager.LoadScene(loadScene.name);
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -223,15 +250,18 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "STAGE SELECT";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
                 {
                     SceneManager.LoadScene("StageSelect");
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;
@@ -245,15 +275,18 @@ public class PauseScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     state = "CLOSE";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     state = "RESTART";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 if (Input.GetButtonDown("A"))
                 {
                     SceneManager.LoadScene("Title");
+                    audioSource.PlayOneShot(dicideSE);
                 }
 
                 break;

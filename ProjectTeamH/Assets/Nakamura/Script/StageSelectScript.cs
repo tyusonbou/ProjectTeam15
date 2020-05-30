@@ -28,12 +28,22 @@ public class StageSelectScript : MonoBehaviour
 
     float menuSelect;
 
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioClip selectSE;
+    [SerializeField]
+    AudioClip dicideSE;
+    [SerializeField]
+    AudioClip pageSE;
+
     // Start is called before the first frame update
     void Start()
     {
         PageState = "PAGE1";
         StageState = "STAGE1";
         menuSelect = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +68,7 @@ public class StageSelectScript : MonoBehaviour
     {
         if (Input.GetButtonDown("A"))
         {
+            audioSource.PlayOneShot(dicideSE);
             switch (PageState)
             {
                 case "PAGE1":
@@ -305,6 +316,7 @@ public class StageSelectScript : MonoBehaviour
         if (Input.GetButtonDown("RB") || Input.GetButtonDown("LB"))
         {
             StageState = "STAGE1";
+            audioSource.PlayOneShot(pageSE);
         }
 
 
@@ -323,10 +335,12 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE5";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -344,14 +358,17 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE1";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -369,14 +386,17 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE4";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -394,10 +414,12 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE8";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -415,10 +437,12 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE1";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -436,14 +460,17 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE5";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE2";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -461,14 +488,17 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE8";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE6";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE3";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;
@@ -486,10 +516,12 @@ public class StageSelectScript : MonoBehaviour
                 if ((Input.GetAxisRaw("Horizontal") < 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE7";
+                    audioSource.PlayOneShot(selectSE);
                 }
                 if ((Input.GetAxisRaw("Vertical") > 0) && (menuSelect == 0))
                 {
                     StageState = "STAGE4";
+                    audioSource.PlayOneShot(selectSE);
                 }
 
                 break;

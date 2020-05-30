@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nakamura/Scene/Stages/Stage4.unity
     guid: 9dea64c4350582f43adde5cd748e8603
+  - enabled: 1
+    path: Assets/Haraguni/Scenes/SoundUI.unity
+    guid: e32dae6626112124d99c8621331dfafc
   m_configObjects: {}

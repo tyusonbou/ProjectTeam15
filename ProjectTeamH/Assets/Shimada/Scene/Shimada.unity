@@ -1098,6 +1098,11 @@ PrefabInstance:
       propertyPath: Acid
       value: 
       objectReference: {fileID: 507905597}
+    - target: {fileID: 6939317531222938246, guid: d02e13760b96ff24e8d514c450819dc3,
+        type: 3}
+      propertyPath: Swich
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6939317531222938248, guid: d02e13760b96ff24e8d514c450819dc3,
         type: 3}
       propertyPath: m_LocalPosition.x

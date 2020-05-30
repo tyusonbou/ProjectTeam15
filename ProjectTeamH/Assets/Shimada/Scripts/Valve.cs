@@ -7,19 +7,24 @@ using UnityEngine;
 
 public class Valve : MonoBehaviour
 {
-    private bool Swich;//オンかオフか
+    public bool Swich;//オンかオフか
     [SerializeField]
     private GameObject Acid;//酸のオブジェクト
     void Start()
     {
-        Swich = false;//最初はオフ 
-        Acid.gameObject.SetActive(false);
-
+        
     }
 
     void Update()
     {
-
+        if(Swich == false)
+        {
+            Acid.gameObject.SetActive(false);
+        }
+        else if(Swich == true)
+        {
+            Acid.gameObject.SetActive(true);
+        }
     }
     void OnTriggerEnter2D(Collider2D col)
     {

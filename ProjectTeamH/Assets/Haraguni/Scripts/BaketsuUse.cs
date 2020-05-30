@@ -11,10 +11,13 @@ public class BaketsuUse : MonoBehaviour
     //バケツが壊れた時一度だけバケツを呼び出す（酸を出す）
     private bool isBreak;
 
+    //バケツ出し
+    [SerializeField]
+    private AudioSource baketsuAudio;
+
     void Update()
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }//ポーズ時停止//中村望追記
-
         if (bake.hp<=0)
         {
             bake.HpRecovery();
@@ -34,12 +37,12 @@ public class BaketsuUse : MonoBehaviour
         {
             //バケツを表示する
             baketsu.SetActive(true);
+            baketsuAudio.Play();
         }
-
-
-        if(bake.IsMax())
+        if (bake.IsMax())
         {
             bake.HealthMinus();
         }
     }
+
 }

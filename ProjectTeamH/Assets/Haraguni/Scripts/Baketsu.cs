@@ -38,6 +38,9 @@ public class Baketsu : MonoBehaviour
 
     public bool coolTime;//バケツが壊れてる状態//中村望s追加
 
+    //バケツ効果音
+    [SerializeField]
+    private AudioSource acidInAudio, acidOutAudio,baketsuInAudio;
     void Start()
     {
         isMax = false;
@@ -64,8 +67,12 @@ public class Baketsu : MonoBehaviour
         } 
         parentVec = parentObj.transform.position;
         pos = new Vector3(parentVec.x, parentVec.y, parentVec.z); // +0.64fはプレイヤーとの距離（仮）
-        if (!isMax) { Pump(); }
-        if (isMax) { Spill(); }
+        if (!isMax) {
+            Pump();
+        }
+        else {
+            Spill();
+        }
     }
 
     //酸を汲む処理
@@ -86,6 +93,7 @@ public class Baketsu : MonoBehaviour
     //酸を零す処理
     void Spill()
     {
+        acidOutAudio.Play();
         useTime += Time.deltaTime;
         pos.y += Time.deltaTime * 0.8f;
         transform.position = pos;
@@ -93,7 +101,6 @@ public class Baketsu : MonoBehaviour
         {
             GetComponent<BoxCollider2D>().enabled = false;
             useTime = 0.0f;
-
             //汲む前の見た目に戻す
             renderer.sprite = spr[0];
             //pos.y = 0;中村望修正
@@ -101,7 +108,7 @@ public class Baketsu : MonoBehaviour
             //酸をバケツの位置に生成する
             GameObject A = Instantiate(acid) as GameObject;
             A.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
+            baketsuInAudio.Play();
             //汲んでない状態にしてオブジェクトを隠す
             isMax = false;
             this.gameObject.SetActive(false);
@@ -110,22 +117,27 @@ public class Baketsu : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //酸に触れたら酸を消す
-        if (col.gameObject.tag == "Acid" && !isMax)
+
+        //酸を汲み取る
+        if (col.gameObject.tag == "Acid")
         {
-                isMax = true;
+            if (isMax) return;
+            acidInAudio.Play();
+            isMax = true;
                 //Destroy(col.gameObject);
                 renderer.sprite = spr[1];
                 //pos.y = 0.0f;中村望修正
                 transform.position = pos;
+            baketsuInAudio.Play();
                 this.gameObject.SetActive(false);
         }
 
         //酸以外のオブジェクトに触れた場合、そのまま戻す
         else
         {
-                //pos.y = 0.0f;中村望修正
-                GetComponent<BoxCollider2D>().enabled = false;
+            baketsuInAudio.Play();
+            //pos.y = 0.0f;中村望修正
+            GetComponent<BoxCollider2D>().enabled = false;
                 transform.position = pos;
                 this.gameObject.SetActive(false);
         }
@@ -155,5 +167,5 @@ public class Baketsu : MonoBehaviour
             }
         }
     }
-    
+
 }

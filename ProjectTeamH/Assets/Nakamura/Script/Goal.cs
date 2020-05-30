@@ -6,8 +6,8 @@ public class Goal : MonoBehaviour
 {
     static bool isGoal;
 
-    public GameObject gameObject1;
-    public GameObject gameObject2;
+    //public GameObject gameObject1;
+    //public GameObject gameObject2;
 
     [SerializeField]
     AudioClip openSE;
@@ -31,8 +31,8 @@ public class Goal : MonoBehaviour
         if (GameObject.Find("Key") == null)
         {
             animator.SetBool("Open", true);
-            gameObject1.SetActive(false);
-            gameObject2.SetActive(false);
+            //gameObject1.SetActive(false);
+            //gameObject2.SetActive(false);
         }
     }
 

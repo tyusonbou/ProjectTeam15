@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour {
     public float FallSpped2;
     public float FallSpped3;
 
-    public int Hp;
+    public float DeadTime;
+    public float DeadEndTime;
+
     static int NeutralizerCount;
     public int BaketuPos;
 
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 
         umbrellaHP = 10;
         NeutralizerCount = 0;
+        DeadTime = 0;
 
         Umbrella.SetActive(false);
         LRState = "RIGHT";
@@ -119,7 +122,7 @@ public class PlayerController : MonoBehaviour {
         UseNeutralizer(); //中和剤使用
         LRBaketu();
         ChangeAnimation(); //アニメーション
-
+        Dead();
         Move(); //移動
 
         //KnockBack(); //ノックバック
@@ -300,19 +303,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    //void KnockBack()
-    //{
-    //    if (isKnockBack)
-    //    {
-    //        invisibleTimer += Time.deltaTime;
-    //        if (invisibleTimer > invisibleInterval)
-    //        {
-    //            invisibleTimer = 0;
-    //            rb2d.AddForce(Vector2.zero);
-    //            isKnockBack = false;
-    //        }
-    //    }
-    //}
+    
 
     //中和剤使用
     void UseNeutralizer()
@@ -346,6 +337,19 @@ public class PlayerController : MonoBehaviour {
         if(LRState == "LEFT")
         {
             BaketuUse.transform.position = new Vector3(transform.position.x - BaketuPos, transform.position.y - 0.25f, transform.position.z);
+        }
+    }
+
+    void Dead()
+    {
+        if (isDead == true)
+        {
+            DeadTime += Time.deltaTime;
+
+            if (DeadTime > DeadEndTime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -452,7 +456,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isDead)
         {
-            animator.SetTrigger("Dead");
+            animator.SetBool("Dead",true);
         }
 
     }

@@ -23,16 +23,19 @@ public class KillerAcid : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             audioSource.PlayOneShot(meltSE);
+
+            PlayerController.isDead = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
-            audioSource.PlayOneShot(meltSE);
+            PlayerController.isDead = true;
+            //Destroy(collision.gameObject);
+            //audioSource.PlayOneShot(meltSE);
         }
     }
 }

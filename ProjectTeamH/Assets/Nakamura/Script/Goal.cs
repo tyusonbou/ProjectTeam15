@@ -26,13 +26,11 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        //if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-        if (GameObject.Find("Key") == null)
+        if (PlayerController.GetKey() && GameObject.Find("Key") == null)
         {
             animator.SetBool("Open", true);
-            //gameObject1.SetActive(false);
-            //gameObject2.SetActive(false);
         }
     }
 

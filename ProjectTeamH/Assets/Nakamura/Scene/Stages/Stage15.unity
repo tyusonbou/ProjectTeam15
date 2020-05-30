@@ -420,7 +420,7 @@ PrefabInstance:
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.985
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
@@ -520,7 +520,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9b1711e0dc1751c43b5d9895f41fdfaf,
+      objectReference: {fileID: 21300000, guid: 552d2f73b7b4fde41a1719decd7fd78f,
         type: 3}
     - target: {fileID: 7563841295260874670, guid: 77cb139db5369d44aa2122e34813a16b,
         type: 3}
@@ -960,7 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: StageFinal
+  SceneName: Proto
   SecretName: 
   SecretGoalCount: 0
   ClearUI: {fileID: 0}
@@ -1105,7 +1105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9b1711e0dc1751c43b5d9895f41fdfaf,
+      objectReference: {fileID: 21300000, guid: 552d2f73b7b4fde41a1719decd7fd78f,
         type: 3}
     - target: {fileID: 7563841295260874670, guid: 77cb139db5369d44aa2122e34813a16b,
         type: 3}
@@ -6664,7 +6664,7 @@ PrefabInstance:
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.985
+      value: -3.85
       objectReference: {fileID: 0}
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}

@@ -47,8 +47,9 @@ public class AcidScript : MonoBehaviour
         {
             if (!neutral)
             {
-                Destroy(GameObject.Find("Player"));
+                //Destroy(GameObject.Find("Player"));
                 audioSource.PlayOneShot(meltSE);
+                PlayerController.isDead = true;
             }
         }
     }
@@ -78,8 +79,9 @@ public class AcidScript : MonoBehaviour
         //プレイヤーの死亡判定
         if ((col.gameObject.tag == "Player")&&(!neutral))
         {
-            Destroy(col.gameObject);
+            //Destroy(col.gameObject);
             audioSource.PlayOneShot(meltSE);
+            PlayerController.isDead = true;
         }
         if((col.gameObject.tag == "Player") && (neutral))
         {

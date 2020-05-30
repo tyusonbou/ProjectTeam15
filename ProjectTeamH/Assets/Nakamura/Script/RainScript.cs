@@ -37,7 +37,8 @@ public class RainScript : MonoBehaviour
             
             if (PlayerController.GetUmbrella() == false) 
             {
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject);
+                PlayerController.isDead = true;
                 audioSource.PlayOneShot(meltSE);
             }
             

@@ -32,6 +32,10 @@ public class Goal : MonoBehaviour
         {
             animator.SetBool("Open", true);
         }
+        if (isGoal)
+        {
+            animator.SetBool("Open", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,7 +43,7 @@ public class Goal : MonoBehaviour
         if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true))
         {
             isGoal = true;
-            animator.SetBool("Open", true);
+            
             audioSource.PlayOneShot(openSE);
             
         }

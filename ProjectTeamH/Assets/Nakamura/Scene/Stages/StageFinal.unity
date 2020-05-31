@@ -1093,7 +1093,7 @@ PrefabInstance:
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.15
+      value: 27.52
       objectReference: {fileID: 0}
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
@@ -2024,20 +2024,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 620371488, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
-      propertyPath: m_Text
-      value: Congratulations!
-      objectReference: {fileID: 0}
     - target: {fileID: 886908270, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
       propertyPath: bakestu
       value: 
       objectReference: {fileID: 505491134}
-    - target: {fileID: 923455686, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
-      propertyPath: m_Text
-      value: 'PUSH A !
-
-        RETURN TITLE'
-      objectReference: {fileID: 0}
     - target: {fileID: 601118399747926883, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3185,7 +3175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Title
+  SceneName: Proto
   SecretName: 
   SecretGoalCount: 0
   ClearUI: {fileID: 0}

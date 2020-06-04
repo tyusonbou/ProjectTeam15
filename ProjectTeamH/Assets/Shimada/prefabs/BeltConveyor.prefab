@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 968668345}
   - component: {fileID: 968668341}
   m_Layer: 0
-  m_Name: "\u30D9\u30EB\u30C8\u30B3\u30F3\u30D9\u30A21"
+  m_Name: BeltConveyor
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

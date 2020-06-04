@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4875072165342429338}
   - component: {fileID: 4875072165342429339}
   m_Layer: 0
-  m_Name: "\u30B9\u30A4\u30C3\u30C1\u5F0F\u79FB\u52D5\u5E8A"
+  m_Name: MoveFloor
   m_TagString: MoveFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

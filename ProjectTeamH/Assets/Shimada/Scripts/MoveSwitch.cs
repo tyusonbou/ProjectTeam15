@@ -39,7 +39,7 @@ public class MoveSwitch : MonoBehaviour
             if (Swich == false)
             {
                 Swich = true;//スイッチオン
-                audioSource.PlayOneShot(sound);
+                //audioSource.PlayOneShot(sound);
                 FlagManager.Instance.flags[FlagNo] = true;
                 SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
                 spriteRenderer.sprite = on;
@@ -47,7 +47,7 @@ public class MoveSwitch : MonoBehaviour
             else if (Swich == true)
             {
                 Swich = false;//スイッチオフ
-                audioSource.PlayOneShot(sound);
+                //audioSource.PlayOneShot(sound);
                 FlagManager.Instance.flags[FlagNo] = false;
                 SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
                 spriteRenderer.sprite = off;

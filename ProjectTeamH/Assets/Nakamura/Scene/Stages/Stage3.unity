@@ -5022,6 +5022,26 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[10].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6710053517840288129, guid: 15da6d42a1bee644e84d189c7de0b20c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710053517840288129, guid: 15da6d42a1bee644e84d189c7de0b20c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710053517840288129, guid: 15da6d42a1bee644e84d189c7de0b20c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.509434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6710053517840288129, guid: 15da6d42a1bee644e84d189c7de0b20c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
     - target: {fileID: 8214257983198977223, guid: 15da6d42a1bee644e84d189c7de0b20c,
         type: 3}
       propertyPath: m_LocalPosition.x

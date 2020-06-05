@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject baketu;
 
 
-    [SerializeField]
-    bool isGround;
+   
+    static bool isGround;
     [SerializeField]
     bool isJump = true;
     [SerializeField]
@@ -483,5 +483,9 @@ public class PlayerController : MonoBehaviour {
     public static bool GetDead()
     {
         return isDead;
+    }
+    public static bool GetGround()
+    {
+        return isGround;
     }
 }

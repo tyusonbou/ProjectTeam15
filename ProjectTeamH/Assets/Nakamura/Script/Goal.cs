@@ -40,12 +40,23 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true))
+        if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true) && (PlayerController.GetGround() == true)) 
         {
             isGoal = true;
             
             audioSource.PlayOneShot(openSE);
             
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true) && (PlayerController.GetGround() == true))
+        {
+            isGoal = true;
+
+            audioSource.PlayOneShot(openSE);
+
         }
     }
 

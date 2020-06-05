@@ -95,6 +95,7 @@ public class Baketsu : MonoBehaviour
     //酸を零す処理
     void Spill()
     {
+        renderer.sprite = spr[1];
         useTime += Time.deltaTime;
         pos.y += Time.deltaTime * 0.8f;
         transform.position = pos;
@@ -103,8 +104,6 @@ public class Baketsu : MonoBehaviour
             audioSource.PlayOneShot(acidOutAudio);
             GetComponent<BoxCollider2D>().enabled = false;
             useTime = 0.0f;
-            //汲む前の見た目に戻す
-            renderer.sprite = spr[0];
             //pos.y = 0;中村望修正
             transform.position = pos;
             //酸をバケツの位置に生成する
@@ -113,13 +112,13 @@ public class Baketsu : MonoBehaviour
             audioSource.PlayOneShot(baketsuInAudio);
             //汲んでない状態にしてオブジェクトを隠す
             isMax = false;
+        renderer.sprite = spr[0];
             this.gameObject.SetActive(false);
         }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
         //酸を汲み取る
         if (col.gameObject.tag == "Acid")
         {
@@ -127,7 +126,6 @@ public class Baketsu : MonoBehaviour
             audioSource.PlayOneShot(acidInAudio);
             isMax = true;
                 //Destroy(col.gameObject);
-                renderer.sprite = spr[1];
                 //pos.y = 0.0f;中村望修正
                 transform.position = pos;
             audioSource.PlayOneShot(baketsuInAudio);

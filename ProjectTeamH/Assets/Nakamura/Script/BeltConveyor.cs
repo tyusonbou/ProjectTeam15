@@ -54,7 +54,11 @@ public class BeltConveyor : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        col.gameObject.transform.position += new Vector3(speed * Time.deltaTime * LR, 0, 0);
+        if (col.gameObject.tag == "Player" || col.gameObject.tag == "Neutralizer" || col.gameObject.tag == "Key")
+        {
+            col.gameObject.transform.position += new Vector3(speed * Time.deltaTime * LR, 0, 0);
+        }
+        
     }
 
    

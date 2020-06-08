@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if ((col.gameObject.tag == "Neutralizer"))
+        if ((col.gameObject.tag == "Neutralizer") && (NeutralizerScript.ReturnGround() == true)) 
         {
             NeutralizerCount += 1;
             audioSource.PlayOneShot(getNeuSE);

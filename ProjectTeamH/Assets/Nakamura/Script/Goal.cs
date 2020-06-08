@@ -34,7 +34,7 @@ public class Goal : MonoBehaviour
         }
         if (isGoal)
         {
-            animator.SetBool("Open", true);
+            
         }
     }
 
@@ -42,10 +42,14 @@ public class Goal : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true) && (PlayerController.GetGround() == true)) 
         {
-            isGoal = true;
-            
-            audioSource.PlayOneShot(openSE);
-            
+            if (Input.GetButtonDown("A"))
+            {
+                isGoal = true;
+
+                audioSource.PlayOneShot(openSE);
+            }
+            animator.SetBool("Open", true);
+
         }
     }
 
@@ -53,10 +57,13 @@ public class Goal : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Player") && (PlayerController.GetKey() == true) && (PlayerController.GetGround() == true))
         {
-            isGoal = true;
+            if (Input.GetButtonDown("A"))
+            {
+                isGoal = true;
 
-            audioSource.PlayOneShot(openSE);
-
+                audioSource.PlayOneShot(openSE);
+            }
+            animator.SetBool("Open", true);
         }
     }
 

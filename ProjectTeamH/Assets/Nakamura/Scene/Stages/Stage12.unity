@@ -5905,7 +5905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Stage13
+  SceneName: Stage14
   SecretName: 
   SecretGoalCount: 0
   ClearUI: {fileID: 0}
@@ -6033,10 +6033,6 @@ PrefabInstance:
       propertyPath: bakestu
       value: 
       objectReference: {fileID: 238378392}
-    - target: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 601118399747926883, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -6167,11 +6163,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5604562490882158699, guid: 441bd5375016d5f4ca53311ae3fde7c0,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 39dcf980d2a4dcf4082e818c55b31fed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
 --- !u!1001 &876460121

@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Acida
       objectReference: {fileID: 0}
+    - target: {fileID: 8728200226218730834, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8728200226218730847, guid: c9f4f55bbe939ab419d95bfb7f930d6f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -421,7 +426,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
   gage: {fileID: 0}
+  playerVec: {x: 0, y: 0}
   Image: {fileID: 0}
+  ImageUm: {fileID: 0}
+  Panel: {fileID: 0}
   spr:
   - {fileID: 0}
   - {fileID: 0}
@@ -436,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Acid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587523472641524256, guid: 37723015f2755864d8d268b26517684d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4587523472641524258, guid: 37723015f2755864d8d268b26517684d,
         type: 3}

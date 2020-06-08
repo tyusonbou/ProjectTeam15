@@ -121,7 +121,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 620371488, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
       propertyPath: m_Text
-      value: Congratulations!
+      value: STAGE CLEAR!
       objectReference: {fileID: 0}
     - target: {fileID: 886908270, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
       propertyPath: bakestu
@@ -131,7 +131,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'PUSH A !
 
-        GO TO TITLE...'
+        NEXT STAGE...'
       objectReference: {fileID: 0}
     - target: {fileID: 601118399747926883, guid: 441bd5375016d5f4ca53311ae3fde7c0,
         type: 3}
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Title
+  SceneName: Proto
   SecretName: 
   SecretGoalCount: 0
   ClearUI: {fileID: 0}

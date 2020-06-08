@@ -9,10 +9,17 @@ public class SliderController : MonoBehaviour
     
     public Image gage;
 
-    PlayerController player;
+    PlayerController playerScript;
+
+    private GameObject player;
+    public Vector2 playerVec;
 
     [SerializeField]
     private Image Image;
+    [SerializeField]
+    private Image ImageUm;
+    [SerializeField]
+    private Image Panel;
 
     [SerializeField]
     private Sprite[] spr = new Sprite[2];
@@ -23,15 +30,18 @@ public class SliderController : MonoBehaviour
         slider = GameObject.Find("Slider").GetComponent<Slider>();
         gage = GameObject.Find("Fill").GetComponent<Image>();
         Image = GameObject.Find("RButtonImage").GetComponent<Image>();
+        ImageUm = GameObject.Find("ImageUm").GetComponent<Image>();
+        Panel = GameObject.Find("PanelBake").GetComponent<Image>();
+        player = GameObject.Find("Player");
 
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
-
+        SliderAlpha();
         slider.value = PlayerController.umbrellaHP;
 
         if (!PlayerController.GetCoolTime())
@@ -62,14 +72,35 @@ public class SliderController : MonoBehaviour
         if (slider.value >= 7)
         {
             slider.image.color = new Color(255, 255, 255);
+            ImageUm.color = Color.white;
         }
         else if (slider.value >= 3 && slider.value < 7)
         {
             slider.image.color = new Color(255, 255, 0);
+            ImageUm.color = Color.yellow;
         }
         else if (slider.value <= 3)
         {
             slider.image.color = new Color(255, 0, 0);
+            ImageUm.color = Color.red;
+        }
+    }
+
+    void SliderAlpha()
+    {
+        if (player.transform.position.x < playerVec.x && player.transform.position.y > playerVec.y)
+        {
+            slider.image.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
+            Image.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
+            ImageUm.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
+            //Panel.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
+        }
+        else
+        {
+            slider.image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            Image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            ImageUm.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            //Panel.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
     }
 }

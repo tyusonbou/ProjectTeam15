@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Stage4
+  SceneName: Stage16
   SecretName: 
   SecretGoalCount: 0
   ClearUI: {fileID: 0}
@@ -526,12 +526,12 @@ PrefabInstance:
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: -7.45
       objectReference: {fileID: 0}
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.77
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}

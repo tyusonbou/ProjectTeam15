@@ -36,15 +36,15 @@ public class SceneManage : MonoBehaviour
 
         if (ClearUI.activeSelf)
         {
-
+            Time.timeScale = 0f;
+            Debug.Log("stop");
         }
 
         if (Goal.GetGoal())
         {
             ClearUI.SetActive(true);
            
-
-            Time.timeScale = 0f;
+            
 
             if (Input.GetButtonDown("A"))
             {

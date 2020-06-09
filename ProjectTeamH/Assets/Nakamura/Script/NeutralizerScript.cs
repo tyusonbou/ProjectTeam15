@@ -30,19 +30,6 @@ public class NeutralizerScript : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Ground")
-    //    {
-    //        isGround = true;
-    //    }
-
-    //    //if ((collision.gameObject.tag == "Player"))
-    //    //{
-    //    //    Destroy(gameObject);
-    //    //}
-    //}
-
     public static bool ReturnGround()
     {
         return isGround;

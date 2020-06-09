@@ -996,11 +996,11 @@ MonoBehaviour:
   DeadEndTime: 1
   BaketuPos: 1
   Umbrella: {fileID: 3507134326102658996}
-  Neutralizer: {fileID: 9011737067881057822, guid: a86db3102da46564fb5691a5e7d135f4,
+  NeutralizerPrefab: {fileID: 9011737067881057822, guid: a86db3102da46564fb5691a5e7d135f4,
     type: 3}
   BaketuUse: {fileID: 1785945648}
   baketu: {fileID: 4141581843536503981}
-  isGround: 0
+  capForce: 100
   isJump: 1
   isFall: 0
   isDash: 0

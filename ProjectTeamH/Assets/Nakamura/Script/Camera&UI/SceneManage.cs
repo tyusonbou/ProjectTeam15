@@ -32,7 +32,7 @@ public class SceneManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
+        if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
         if (ClearUI.activeSelf)
         {

@@ -9,6 +9,8 @@ public class Goal : MonoBehaviour
     //public GameObject gameObject1;
     //public GameObject gameObject2;
 
+    public GameObject ButtonA;
+
     [SerializeField]
     AudioClip openSE;
 
@@ -21,6 +23,7 @@ public class Goal : MonoBehaviour
         isGoal = false;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        ButtonA.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,7 +52,7 @@ public class Goal : MonoBehaviour
                 audioSource.PlayOneShot(openSE);
             }
             animator.SetBool("Open", true);
-
+            ButtonA.SetActive(true);
         }
     }
 
@@ -64,6 +67,14 @@ public class Goal : MonoBehaviour
                 audioSource.PlayOneShot(openSE);
             }
             animator.SetBool("Open", true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if((collision.gameObject.tag == "Player"))
+        {
+            ButtonA.SetActive(false);
         }
     }
 

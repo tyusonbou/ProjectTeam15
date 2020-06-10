@@ -463,6 +463,7 @@ MonoBehaviour:
   SceneName: Stage17
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 666731827}
   ClearSE: {fileID: 8300000, guid: c7ed166338725a14c9dc5a3e502f3fc3, type: 3}
 --- !u!114 &260292120
@@ -478,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1869533275}
+  clearUI: {fileID: 666731827}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}

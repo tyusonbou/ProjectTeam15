@@ -498,6 +498,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 311823687}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &311823689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 311823687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &466909393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1173,6 +1179,7 @@ MonoBehaviour:
   SceneName: stage_shimada1
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 0}
   ClearSE: {fileID: 8300000, guid: c7ed166338725a14c9dc5a3e502f3fc3, type: 3}
 --- !u!114 &1314004731
@@ -1188,6 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 964021464}
+  clearUI: {fileID: 311823689}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}

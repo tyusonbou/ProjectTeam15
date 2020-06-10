@@ -381,26 +381,6 @@ public class PlayerController : MonoBehaviour {
 
             audioSource.PlayOneShot(landingSE);
         }
-       
-        
-
-        //if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
-        //{
-        //    isKnockBack = true;
-        //    Hp -= 1;
-
-        //    Vector3 knockBackDirection = (col.gameObject.transform.position - transform.position).normalized;
-
-        //    knockBackDirection.x *= -1;
-        //    knockBackDirection.y = 1;
-        //    knockBackDirection.z += -1;
-
-        //    rb2d.AddForce(Vector2.zero);
-        //    rb2d.AddForce(knockBackDirection* EnemyAttack);
-        //}
-
-       
-
     }
     private void OnTriggerStay2D(Collider2D col)
     {

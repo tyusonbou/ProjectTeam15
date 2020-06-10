@@ -64,7 +64,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 53
     m_FontStyle: 0
     m_BestFit: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1660,6 +1660,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2566429688970527485}
     m_Modifications:
+    - target: {fileID: 2501916409819094161, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
     - target: {fileID: 2501916410610892208, guid: 7ff05f0c746e5fc4880fc19182edff27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1770,6 +1776,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2501916410682238068, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 2501916410745220859, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 2501916411132046011, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 7273768256697058824, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ff05f0c746e5fc4880fc19182edff27, type: 3}
 --- !u!224 &82575026083807209 stripped
@@ -1785,6 +1815,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2566429688970527485}
     m_Modifications:
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 705075006010500074, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
         type: 3}
       propertyPath: spr.Array.data[0]

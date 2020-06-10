@@ -1910,6 +1910,11 @@ PrefabInstance:
       propertyPath: pauseUI
       value: 
       objectReference: {fileID: 1860787424}
+    - target: {fileID: 4833038607315340274, guid: dd9f631ba819ab04ebb02c4c44790bc6,
+        type: 3}
+      propertyPath: clearUI
+      value: 
+      objectReference: {fileID: 1822865634}
     - target: {fileID: 4833038607315340275, guid: dd9f631ba819ab04ebb02c4c44790bc6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2189,6 +2194,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
+--- !u!1 &1822865634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1822865633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1860787424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 82575026083807210, guid: 441bd5375016d5f4ca53311ae3fde7c0,

@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 489827093}
+  clearUI: {fileID: 1846814744}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}
@@ -391,6 +392,7 @@ MonoBehaviour:
   SceneName: Stage19
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 0}
   ClearSE: {fileID: 8300000, guid: 77afd44078897804e96cd93427e0232e, type: 3}
 --- !u!114 &498372758
@@ -1464,6 +1466,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
+--- !u!1 &1846814744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846814743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1870199748
 PrefabInstance:
   m_ObjectHideFlags: 0

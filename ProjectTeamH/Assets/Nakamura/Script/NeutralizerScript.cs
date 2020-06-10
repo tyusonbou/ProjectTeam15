@@ -30,6 +30,14 @@ public class NeutralizerScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGround = false;
+        }
+    }
+
     public static bool ReturnGround()
     {
         return isGround;

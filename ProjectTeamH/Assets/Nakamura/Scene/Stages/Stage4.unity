@@ -304,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 2134532111}
+  clearUI: {fileID: 2134532112}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}
@@ -327,6 +328,7 @@ MonoBehaviour:
   SceneName: Stage6
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 0}
   ClearSE: {fileID: 8300000, guid: 77afd44078897804e96cd93427e0232e, type: 3}
 --- !u!114 &141255570
@@ -4094,6 +4096,12 @@ PrefabInstance:
 --- !u!1 &2134532111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 82575026083807210, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2134532110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2134532112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
     type: 3}
   m_PrefabInstance: {fileID: 2134532110}
   m_PrefabAsset: {fileID: 0}

@@ -683,6 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonA: {fileID: 763753126}
   openSE: {fileID: 8300000, guid: 9718fd696b1f5f740bacf47169f2712e, type: 3}
+  ClearSE: {fileID: 8300000, guid: b8d4a2d4b6fd2ef45b32f2c25965fcf9, type: 3}
 --- !u!95 &335836738
 Animator:
   serializedVersion: 3

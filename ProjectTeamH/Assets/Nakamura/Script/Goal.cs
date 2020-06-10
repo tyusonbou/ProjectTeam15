@@ -13,6 +13,8 @@ public class Goal : MonoBehaviour
 
     [SerializeField]
     AudioClip openSE;
+    [SerializeField]
+    AudioClip ClearSE;
 
     Animator animator;
     AudioSource audioSource;
@@ -48,11 +50,11 @@ public class Goal : MonoBehaviour
             if (Input.GetButtonDown("A"))
             {
                 isGoal = true;
-
-                audioSource.PlayOneShot(openSE);
+                audioSource.PlayOneShot(ClearSE);
             }
             animator.SetBool("Open", true);
             ButtonA.SetActive(true);
+            audioSource.PlayOneShot(openSE);
         }
     }
 

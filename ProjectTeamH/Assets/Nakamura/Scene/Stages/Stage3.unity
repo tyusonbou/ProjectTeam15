@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1001132505}
+  clearUI: {fileID: 1684815222}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}
@@ -414,9 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Stage4
+  SceneName: Stage16
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 0}
   ClearSE: {fileID: 8300000, guid: 77afd44078897804e96cd93427e0232e, type: 3}
 --- !u!82 &469530820
@@ -526,12 +528,12 @@ PrefabInstance:
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: -7.45
       objectReference: {fileID: 0}
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.77
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 3507134327002878610, guid: 5a850d62c8123254b89ef33cf0cc1447,
         type: 3}
@@ -1161,6 +1163,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
+--- !u!1 &1684815222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1684815221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1707093472
 PrefabInstance:
   m_ObjectHideFlags: 0

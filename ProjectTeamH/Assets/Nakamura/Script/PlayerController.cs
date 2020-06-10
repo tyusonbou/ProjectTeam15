@@ -27,11 +27,13 @@ public class PlayerController : MonoBehaviour {
     public int BaketuPos;
 
     public GameObject Umbrella;
-    public GameObject Neutralizer;
+    public GameObject NeutralizerPrefab;
     public GameObject BaketuUse;
     public GameObject baketu;
+    
+    private GameObject Capsule;
 
-
+    public float capForce;
    
     static bool isGround;
     [SerializeField]
@@ -142,7 +144,7 @@ public class PlayerController : MonoBehaviour {
 
     void GetInputKey()
     {
-        if (isDead) { return; }
+        if (isDead) { LR = 0; return; }
 
         LR = 0;
         if (!isDash)
@@ -308,20 +310,27 @@ public class PlayerController : MonoBehaviour {
     //中和剤使用
     void UseNeutralizer()
     {
+        Rigidbody2D capRB2D;
         if (isDead) { return; }
 
         if ((Input.GetButtonDown("X")) && (NeutralizerCount>=1))
         {
             animator.SetTrigger("useNeutralizer");
             audioSource.PlayOneShot(useNeuSE);
+            //カプセルの生成
+            Capsule = Instantiate(NeutralizerPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+            capRB2D = Capsule.GetComponent<Rigidbody2D>();
 
-            if(LRState=="RIGHT")
-            {
-                Instantiate(Neutralizer, transform.position + new Vector3(1, 0.5f, 0), Quaternion.identity);
+            if (LRState=="RIGHT")
+            {//右向きの時右斜め前
+                capRB2D.AddForce(Vector2.up*capForce);
+                capRB2D.AddForce(Vector2.right*capForce);
             }
             if (LRState == "LEFT")
-            {
-                Instantiate(Neutralizer, transform.position + new Vector3(-1, 0.5f, 0), Quaternion.identity);
+            {//左向きの時左斜め前
+                //Instantiate(NeutralizerPrefab, transform.position + new Vector3(-1, 0.5f, 0), Quaternion.identity);
+                capRB2D.AddForce(Vector2.up*capForce);
+                capRB2D.AddForce(Vector2.left*capForce);
             }
             NeutralizerCount -= 1;
         }
@@ -355,7 +364,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if ((col.gameObject.tag == "Neutralizer"))
+        if ((col.gameObject.tag == "Neutralizer") && (NeutralizerScript.ReturnGround() == true)) 
         {
             NeutralizerCount += 1;
             audioSource.PlayOneShot(getNeuSE);
@@ -372,26 +381,6 @@ public class PlayerController : MonoBehaviour {
 
             audioSource.PlayOneShot(landingSE);
         }
-       
-        
-
-        //if ((col.gameObject.tag == "Enemy") && (!isKnockBack))
-        //{
-        //    isKnockBack = true;
-        //    Hp -= 1;
-
-        //    Vector3 knockBackDirection = (col.gameObject.transform.position - transform.position).normalized;
-
-        //    knockBackDirection.x *= -1;
-        //    knockBackDirection.y = 1;
-        //    knockBackDirection.z += -1;
-
-        //    rb2d.AddForce(Vector2.zero);
-        //    rb2d.AddForce(knockBackDirection* EnemyAttack);
-        //}
-
-       
-
     }
     private void OnTriggerStay2D(Collider2D col)
     {

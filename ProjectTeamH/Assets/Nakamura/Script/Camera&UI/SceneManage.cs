@@ -11,6 +11,8 @@ public class SceneManage : MonoBehaviour
     private string SecretName;
     [SerializeField]
     int SecretGoalCount;
+    [SerializeField]
+    bool defaltButton;
 
     [SerializeField]
     GameObject ClearUI;
@@ -25,7 +27,7 @@ public class SceneManage : MonoBehaviour
     {
         ClearUI = GameObject.Find("ClearUI");
         ClearUI.SetActive(false);
-
+        defaltButton = false;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -34,19 +36,22 @@ public class SceneManage : MonoBehaviour
     {
         //if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-        if (ClearUI.activeSelf)
-        {
-
-        }
+        //if (ClearUI.activeSelf)
+        //{
+        //    Time.timeScale = 0f;
+        //    Debug.Log(Time.timeScale);
+        //}
 
         if (Goal.GetGoal())
         {
             ClearUI.SetActive(true);
-           
 
-            Time.timeScale = 0f;
+            if (Input.GetButtonUp("A"))
+            {
+                defaltButton = true;
+            }
 
-            if (Input.GetButtonDown("A"))
+            if (Input.GetButtonDown("A") && defaltButton == true)
             {
                 audioSource.PlayOneShot(ClearSE);
                 //隠し条件設定なし時通常ゴール

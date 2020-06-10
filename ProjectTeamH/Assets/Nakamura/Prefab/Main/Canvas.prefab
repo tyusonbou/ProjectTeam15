@@ -64,7 +64,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 53
     m_FontStyle: 0
     m_BestFit: 0
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 882370625}
   - component: {fileID: 882370624}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: PanelBake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 29
     m_FontStyle: 0
     m_BestFit: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -977,7 +977,10 @@ MonoBehaviour:
   slider: {fileID: 601118398518119795}
   bakestu: {fileID: 0}
   gage: {fileID: 601118399888265711}
+  playerVec: {x: -5, y: 2.5}
   Image: {fileID: 0}
+  ImageBake: {fileID: 0}
+  Panel: {fileID: 0}
   spr:
   - {fileID: 21300000, guid: 3585a87075202694c9224e12ac82ffbe, type: 3}
   - {fileID: 21300002, guid: 3585a87075202694c9224e12ac82ffbe, type: 3}
@@ -1099,7 +1102,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 39dcf980d2a4dcf4082e818c55b31fed, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1195,7 +1198,7 @@ GameObject:
   - component: {fileID: 8909147590482418884}
   - component: {fileID: 5600121063343981819}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageBake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,7 +1270,7 @@ GameObject:
   - component: {fileID: 8023960286765424302}
   - component: {fileID: 6123203395927997552}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageUm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,6 +1660,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2566429688970527485}
     m_Modifications:
+    - target: {fileID: 2501916409819094161, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
     - target: {fileID: 2501916410610892208, guid: 7ff05f0c746e5fc4880fc19182edff27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1767,6 +1776,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2501916410682238068, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 2501916410745220859, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 2501916411132046011, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 7273768256697058824, guid: 7ff05f0c746e5fc4880fc19182edff27,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ff05f0c746e5fc4880fc19182edff27, type: 3}
 --- !u!224 &82575026083807209 stripped
@@ -1782,6 +1815,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2566429688970527485}
     m_Modifications:
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 3f530751f2dace943afc647649551547,
+        type: 3}
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 705075005642475584, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 705075006010500074, guid: 1ad4edfaa1c62974cb0cf735cac9dc2a,
         type: 3}
       propertyPath: spr.Array.data[0]
@@ -1933,6 +1982,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300002, guid: 1c153b8a9ee232847bc3e58a55f96bb9,
         type: 3}
+    - target: {fileID: 1485032362, guid: 2905a7ede0d026f4ab67df327c73da03, type: 3}
+      propertyPath: playerVec.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485032362, guid: 2905a7ede0d026f4ab67df327c73da03, type: 3}
+      propertyPath: playerVec.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 601118398474150208, guid: 2905a7ede0d026f4ab67df327c73da03,
         type: 3}
       propertyPath: m_AnchorMax.x

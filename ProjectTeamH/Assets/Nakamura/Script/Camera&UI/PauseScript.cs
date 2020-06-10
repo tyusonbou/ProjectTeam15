@@ -9,6 +9,9 @@ public class PauseScript : MonoBehaviour
     //ポーズした時に表示するUI
     [SerializeField]
     private GameObject pauseUI;
+    //クリア時UI
+    [SerializeField]
+    private GameObject clearUI;
 
     [SerializeField]
     private Text MainText;
@@ -38,6 +41,7 @@ public class PauseScript : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
+        //clearUI = GameObject.Find("ClearUI");
 
         MainText = pauseUI.transform.Find("PauseText").GetComponent<Text>();
         CloseText = pauseUI.transform.Find("CloseText").GetComponent<Text>();
@@ -54,7 +58,7 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetButtonDown("START")) && (Player != null))
+        if ((Input.GetButtonDown("START")) && (Player != null) && (!clearUI.activeSelf))
         {   //　ポーズUIのアクティブ、非アクティブを切り替え
             pauseUI.SetActive(!pauseUI.activeSelf);
 
@@ -63,7 +67,7 @@ public class PauseScript : MonoBehaviour
         }
 
         //　ポーズUIが表示されてる時は停止
-        if (pauseUI.activeSelf && Player != null) 
+        if (pauseUI.activeSelf && Player != null ) 
         {
             Time.timeScale = 0f;
 
@@ -81,6 +85,11 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 0f;
             //　ゲームオーバーUIのアクティブ、非アクティブを切り替え
             GameOverUI();
+        }
+
+        if (clearUI.activeSelf)
+        {
+            Time.timeScale = 0f;
         }
 
         if (Input.GetAxisRaw("Vertical") == 0)

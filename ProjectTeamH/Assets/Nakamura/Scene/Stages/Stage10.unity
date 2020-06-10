@@ -5638,6 +5638,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441bd5375016d5f4ca53311ae3fde7c0, type: 3}
+--- !u!1 &530978662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299328234, guid: 441bd5375016d5f4ca53311ae3fde7c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 530978661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1078171347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5960,9 +5966,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da477c35f395fc147958580e6d3aea1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Stage11
+  SceneName: Stage8
   SecretName: 
   SecretGoalCount: 0
+  defaltButton: 0
   ClearUI: {fileID: 0}
   ClearSE: {fileID: 8300000, guid: c7ed166338725a14c9dc5a3e502f3fc3, type: 3}
 --- !u!114 &1588565231
@@ -5978,6 +5985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1380082175}
+  clearUI: {fileID: 530978662}
   MainText: {fileID: 0}
   CloseText: {fileID: 0}
   RestartText: {fileID: 0}

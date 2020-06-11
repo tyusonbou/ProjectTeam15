@@ -69,6 +69,7 @@ public class Goal : MonoBehaviour
                 audioSource.PlayOneShot(openSE);
             }
             animator.SetBool("Open", true);
+            ButtonA.SetActive(true);
         }
     }
 

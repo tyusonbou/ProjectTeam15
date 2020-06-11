@@ -86,8 +86,10 @@ public class PlayerController : MonoBehaviour {
 
     private GameObject Key;
 
-	// Use this for initialization
-	void Start () {
+   
+
+    // Use this for initialization
+    void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
@@ -364,10 +366,16 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if ((col.gameObject.tag == "Neutralizer") && (NeutralizerScript.ReturnGround() == true)) 
+       
+        NeutralizerScript neutralizerScript;
+        if ((col.gameObject.tag == "Neutralizer")/* && (NeutralizerScript.ReturnGround() == true)*/) 
         {
-            NeutralizerCount += 1;
-            audioSource.PlayOneShot(getNeuSE);
+            neutralizerScript = col.gameObject.GetComponent<NeutralizerScript>();
+            if (neutralizerScript.isGround == true)
+            {
+                NeutralizerCount += 1;
+                audioSource.PlayOneShot(getNeuSE);
+            }
         }
     }
 

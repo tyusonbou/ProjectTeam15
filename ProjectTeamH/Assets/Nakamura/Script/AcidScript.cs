@@ -48,7 +48,7 @@ public class AcidScript : MonoBehaviour
             if (!neutral)
             {
                 //Destroy(GameObject.Find("Player"));
-                audioSource.PlayOneShot(meltSE);
+                audioSource.Play();
                 PlayerController.isDead = true;
             }
         }

@@ -387,7 +387,7 @@ public class PlayerController : MonoBehaviour {
             if (!isJump) { isJump = true; }
             if (isFall) { isFall = false; }
 
-            audioSource.PlayOneShot(landingSE);
+            //audioSource.PlayOneShot(landingSE);
         }
     }
     private void OnTriggerStay2D(Collider2D col)

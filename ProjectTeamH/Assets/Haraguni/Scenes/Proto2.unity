@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Horizontal: 1
-  X: 14
+  X: 6
   Y: 0
 --- !u!82 &260292122
 AudioSource:
@@ -671,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 270182972730596433, guid: 50a393940a3d72b4bbabde52a4ccb293,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 270182972730596435, guid: 50a393940a3d72b4bbabde52a4ccb293,
         type: 3}

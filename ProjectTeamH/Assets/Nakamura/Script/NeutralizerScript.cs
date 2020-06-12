@@ -5,7 +5,7 @@ using UnityEngine;
 public class NeutralizerScript : MonoBehaviour
 {
     [SerializeField]
-    static bool isGround;
+    public bool isGround;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +30,14 @@ public class NeutralizerScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGround = true;
+        }
+    }
+        
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -38,8 +46,8 @@ public class NeutralizerScript : MonoBehaviour
         }
     }
 
-    public static bool ReturnGround()
-    {
-        return isGround;
-    }
+    //public static bool ReturnGround()
+    //{
+    //    return isGround;
+    //}
 }

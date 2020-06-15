@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
     //public bool isKnockBack;
 
     int LR = 0;
-    
+    float AngleZ = 0;
     float invisibleTimer = 0;
 
     string state;
@@ -355,6 +355,16 @@ public class PlayerController : MonoBehaviour {
     {
         if (isDead == true)
         {
+            AngleZ -= Time.deltaTime * 90;
+            if (LRState == "RIGHT")
+            {
+                transform.rotation = Quaternion.Euler(0, 0, AngleZ);
+            }
+            else if (LRState == "LEFT")
+            {
+                transform.rotation = Quaternion.Euler(0, 180, AngleZ);
+            }
+            
             DeadTime += Time.deltaTime;
 
             if (DeadTime > DeadEndTime)

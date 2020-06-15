@@ -278,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.13
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 4875072165342429335, guid: 24ebefecb3a363b47b2eb915a29331b4,
         type: 3}
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Horizontal: 1
-  X: 6
+  X: 10
   Y: 0
 --- !u!82 &260292122
 AudioSource:

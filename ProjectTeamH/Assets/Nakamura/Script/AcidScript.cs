@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AcidScript : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
+
     [SerializeField]
     bool neutral;
     [SerializeField]
@@ -21,6 +23,9 @@ public class AcidScript : MonoBehaviour
     [SerializeField]
     AnimationCurve curve;
 
+    public float speed;
+    private float time;
+
     [SerializeField]
     AudioClip meltSE;
     [SerializeField]
@@ -32,6 +37,7 @@ public class AcidScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         neutral = false;
         audioSource = GetComponent<AudioSource>();
     }
@@ -41,7 +47,8 @@ public class AcidScript : MonoBehaviour
     {
         if (Mathf.Approximately(Time.timeScale, 0f)) { return; }
 
-        ToAcid();
+        ToAcid2();
+        
 
         if (deathFrag)
         {
@@ -57,7 +64,7 @@ public class AcidScript : MonoBehaviour
     //中和から酸へ変化
     private void ToAcid()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (neutral)
         {
             acidTimer += Time.deltaTime;
@@ -72,6 +79,38 @@ public class AcidScript : MonoBehaviour
         {
             spriteRenderer.color = acidColor;
         }
+    }
+
+    private void ToAcid2()
+    {
+        if (neutral)
+        {
+            acidTimer += Time.deltaTime;
+            //colorTimer += (Time.deltaTime) / 5;
+            if (acidTimer >= 2.5f)
+            {
+                spriteRenderer.color = GetChangeColor(spriteRenderer.color);
+            }
+            if (acidTimer >= 5)
+            {
+                neutral = false;
+            }
+            
+        }
+        if (!neutral)
+        {
+            spriteRenderer.color = acidColor;
+        }
+        
+    }
+
+    //Alpha値を更新してColorを返す
+    Color GetChangeColor(Color color)
+    {
+        time += Time.deltaTime * 5.0f * speed;
+        color.r = Mathf.Sin(time) * 0.5f + 0.5f;
+
+        return color;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

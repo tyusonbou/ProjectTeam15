@@ -124,7 +124,7 @@ MonoBehaviour:
   deathFrag: 0
   acidTimer: 0
   acidColor: {r: 1, g: 1, b: 0, a: 0.78431374}
-  neutralColor: {r: 0.39215687, g: 1, b: 0.39215687, a: 0.78431374}
+  neutralColor: {r: 0, g: 1, b: 0, a: 0.78431374}
   colorTimer: 0
   curve:
     serializedVersion: 2
@@ -150,6 +150,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  speed: 2
   meltSE: {fileID: 8300000, guid: f35e84bda8c8f9243a81eeb104d2095b, type: 3}
   neutralSE: {fileID: 8300000, guid: e2dcb69083b2f83439fc581765749341, type: 3}
 --- !u!82 &698665019

@@ -63,14 +63,15 @@ public class Baketsu : MonoBehaviour
 
     void Update()
     {
+
+        parentVec = parentObj.transform.position;
+        pos = new Vector3(parentVec.x, parentVec.y, parentVec.z);
         if (hp <= 0) {
             //耐久値が無くなったら、一度だけ呼び出して酸を出して酸を入れてない状態にする。
-            useTime = useEndTime;
             Spill();
             return;
         } 
-        parentVec = parentObj.transform.position;
-        pos = new Vector3(parentVec.x, parentVec.y, parentVec.z);
+
         if (!isMax) {
             Pump(); 
         }
@@ -110,6 +111,7 @@ public class Baketsu : MonoBehaviour
     //酸を零す処理
     void Spill()
     {
+        GetComponent<BoxCollider2D>().enabled = false;
         renderer.sprite = spr[1];
         useTime += Time.deltaTime;
         pos.y += Time.deltaTime * 0.8f;
@@ -117,7 +119,6 @@ public class Baketsu : MonoBehaviour
         if (useTime >= useEndTime)
         {
             audioSource.PlayOneShot(acidOutAudio);
-            GetComponent<BoxCollider2D>().enabled = false;
             useTime = 0.0f;
             transform.position = pos;
             //酸をバケツの位置に生成する

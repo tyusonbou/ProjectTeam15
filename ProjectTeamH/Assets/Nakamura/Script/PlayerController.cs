@@ -131,8 +131,7 @@ public class PlayerController : MonoBehaviour {
 
         //KnockBack(); //ノックバック
 
-        //左右移動
-        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
+       
 
         UseUmbrella();//傘をさす
 
@@ -141,7 +140,8 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        
+        //左右移動
+        transform.position += new Vector3(runSpeed * Time.deltaTime * LR * stateEffect, 0, 0);
     }
 
     void GetInputKey()
